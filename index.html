@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecurifyTech | Your Vision, Our Tech</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0066ff',
+                        secondary: '#00c4ff',
+                        dark: '#0f172a',
+                        light: '#f8fafc',
+                        accent: '#ff5e00',
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 1s ease-in-out',
+                        'slide-up': 'slideUp 0.5s ease-out',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        .gradient-text {
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            background-image: linear-gradient(90deg, #0066ff, #00c4ff);
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #0066ff, #00c4ff);
+        }
+        
+        .dark-gradient-bg {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .nav-link::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #0066ff;
+            transition: width .3s;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .dark .nav-link:hover::after {
+            background: #00c4ff;
+        }
+        
+        .hamburger {
+            cursor: pointer;
+            width: 24px;
+            height: 24px;
+            transition: all 0.25s;
+            position: relative;
+        }
+        
+        .hamburger-top,
+        .hamburger-middle,
+        .hamburger-bottom {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 24px;
+            height: 2px;
+            background: #0066ff;
+            transform: rotate(0);
+            transition: all 0.5s;
+        }
+        
+        .dark .hamburger-top,
+        .dark .hamburger-middle,
+        .dark .hamburger-bottom {
+            background: #00c4ff;
+        }
+        
+        .hamburger-middle {
+            transform: translateY(7px);
+        }
+        
+        .hamburger-bottom {
+            transform: translateY(14px);
+        }
+        
+        .open .hamburger-top {
+            transform: rotate(45deg) translateY(6px) translate(6px);
+        }
+        
+        .open .hamburger-middle {
+            display: none;
+        }
+        
+        .open .hamburger-bottom {
+            transform: rotate(-45deg) translateY(6px) translate(-6px);
+        }
+        
+        .floating {
+            animation-name: floating;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
+        }
+        
+        @keyframes floating {
+            0% { transform: translate(0, 0px); }
+            50% { transform: translate(0, 15px); }
+            100% { transform: translate(0, -0px); }
+        }
+        
+        .scroll-indicator {
+            width: 30px;
+            height: 50px;
+            border: 2px solid #0066ff;
+            border-radius: 15px;
+            position: relative;
+        }
+        
+        .dark .scroll-indicator {
+            border-color: #00c4ff;
+        }
+        
+        .scroll-indicator::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            width: 6px;
+            height: 6px;
+            margin-left: -3px;
+            background-color: #0066ff;
+            border-radius: 100%;
+            animation: scrollDown 2s infinite;
+        }
+        
+        .dark .scroll-indicator::before {
+            background-color: #00c4ff;
+        }
+        
+        @keyframes scrollDown {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body class="bg-light dark:bg-dark text-gray-800 dark:text-gray-200 transition-colors duration-300">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/80 dark:bg-dark/80 backdrop-blur-md shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="#" class="flex items-center">
+                        <div class="w-10 h-10 rounded-full gradient-bg flex items-center justify-center text-white font-bold text-xl mr-2">ST</div>
+                        <span class="text-xl font-bold text-primary dark:text-secondary">SecurifyTech</span>
+                    </a>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link text-sm font-medium">Home</a>
+                    <a href="#about" class="nav-link text-sm font-medium">About</a>
+                    <a href="#services" class="nav-link text-sm font-medium">Services</a>
+                    <a href="#rd" class="nav-link text-sm font-medium">R&D</a>
+                    <a href="#csr" class="nav-link text-sm font-medium">CSR</a>
+                    <a href="#contact" class="nav-link text-sm font-medium">Contact</a>
+                    <button id="theme-toggle" class="p-2 rounded-full focus:outline-none">
+                        <i class="fas fa-moon text-gray-600 dark:text-yellow-300 hidden dark:block"></i>
+                        <i class="fas fa-sun text-yellow-500 dark:hidden"></i>
+                    </button>
+                </div>
+                
+                <div class="md:hidden flex items-center">
+                    <button id="theme-toggle-mobile" class="p-2 mr-2 rounded-full focus:outline-none">
+                        <i class="fas fa-moon text-gray-600 dark:text-yellow-300 hidden dark:block"></i>
+                        <i class="fas fa-sun text-yellow-500 dark:hidden"></i>
+                    </button>
+                    <button id="menu-btn" class="hamburger focus:outline-none">
+                        <span class="hamburger-top"></span>
+                        <span class="hamburger-middle"></span>
+                        <span class="hamburger-bottom"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="menu" class="hidden md:hidden bg-white dark:bg-gray-800 shadow-lg rounded-lg mt-2 py-2 absolute w-full left-0 right-0">
+            <div class="px-5 pt-2 pb-3 space-y-1">
+                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-700">Home</a>
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-700">About</a>
+                <a href="#services" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-700">Services</a>
+                <a href="#rd" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-700">R&D</a>
+                <a href="#csr" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-700">CSR</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-700">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-24 pb-16 md:pt-32 md:pb-24 relative overflow-hidden">
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-b from-white/80 to-white/20 dark:from-dark/80 dark:to-dark/20 z-10"></div>
+            <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')] bg-cover bg-center opacity-20 dark:opacity-10"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="animate-fade-in">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+                        <span class="gradient-text">Your Vision,</span><br>
+                        <span class="text-primary dark:text-secondary">Our Tech</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-lg">
+                        SecurifyTech delivers innovative, high-quality, and secure digital transformation solutions tailored to your business needs.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#services" class="px-6 py-3 gradient-bg text-white rounded-lg font-medium hover:opacity-90 transition duration-300 shadow-lg hover:shadow-xl">
+                            Explore Services <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                        <a href="#contact" class="px-6 py-3 bg-white dark:bg-gray-800 border border-primary dark:border-secondary text-primary dark:text-secondary rounded-lg font-medium hover:bg-gray-100 dark:hover:bg-gray-700 transition duration-300 shadow hover:shadow-lg">
+                            Get in Touch <i class="fas fa-phone ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="animate-slide-up hidden md:block">
+                    <div class="relative">
+                        <div class="w-full h-full bg-primary/10 dark:bg-secondary/10 rounded-2xl p-2">
+                            <img src="https://github.com/Securifytechllc/securifytech.github.io/blob/main/A_digital_graphic_design_image_promoting_cybersecu.png?raw=true" alt="Tech Solutions" class="rounded-xl shadow-2xl">
+                        </div>
+                        <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-accent rounded-xl shadow-xl flex items-center justify-center">
+                            <div class="text-white text-center p-2">
+                                <div class="text-3xl font-bold">15+</div>
+                                <div class="text-sm">Years Experience</div>
+                            </div>
+                        </div>
+                        <div class="absolute -top-6 -right-6 w-32 h-32 gradient-bg rounded-xl shadow-xl flex items-center justify-center">
+                            <div class="text-white text-center p-2">
+                                <div class="text-3xl font-bold">500+</div>
+                                <div class="text-sm">Clients Worldwide</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-16 md:mt-24 flex justify-center animate-bounce">
+                <div class="scroll-indicator"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section class="py-12 bg-gray-100 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-center text-2xl md:text-3xl font-bold mb-12">Trusted By Leading Organizations</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center">
+                <div class="flex justify-center">
+                    <img src="https://via.placeholder.com/150x80?text=Client+1" alt="Client Logo" class="h-12 opacity-70 hover:opacity-100 transition duration-300">
+                </div>
+                <div class="flex justify-center">
+                    <img src="https://via.placeholder.com/150x80?text=Client+2" alt="Client Logo" class="h-12 opacity-70 hover:opacity-100 transition duration-300">
+                </div>
+                <div class="flex justify-center">
+                    <img src="https://via.placeholder.com/150x80?text=Client+3" alt="Client Logo" class="h-12 opacity-70 hover:opacity-100 transition duration-300">
+                </div>
+                <div class="flex justify-center">
+                    <img src="https://via.placeholder.com/150x80?text=Client+4" alt="Client Logo" class="h-12 opacity-70 hover:opacity-100 transition duration-300">
+                </div>
+                <div class="flex justify-center">
+                    <img src="https://via.placeholder.com/150x80?text=Client+5" alt="Client Logo" class="h-12 opacity-70 hover:opacity-100 transition duration-300">
+                </div>
+                <div class="flex justify-center">
+                    <img src="https://via.placeholder.com/150x80?text=Client+6" alt="Client Logo" class="h-12 opacity-70 hover:opacity-100 transition duration-300">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 md:py-24 bg-white dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="order-2 md:order-1">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">About <span class="gradient-text">SecurifyTech</span></h2>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 mb-6">
+                        Founded in 2008, SecurifyTech is a leading Pakistani technology company specializing in IT infrastructure, cybersecurity, automation, and professional training services.
+                    </p>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 mb-8">
+                        We are committed to delivering innovative, high-quality, and secure digital transformation solutions that empower businesses to thrive in the digital age. Our team of certified professionals brings together expertise from diverse technological domains to provide comprehensive solutions tailored to your specific needs.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-4 mb-8">
+                        <div class="flex items-start">
+                            <div class="bg-primary/10 dark:bg-secondary/10 p-2 rounded-lg mr-3">
+                                <i class="fas fa-check-circle text-primary dark:text-secondary text-xl"></i>
+                            </div>
+                            <span class="text-gray-700 dark:text-gray-300">ISO Certified</span>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-primary/10 dark:bg-secondary/10 p-2 rounded-lg mr-3">
+                                <i class="fas fa-check-circle text-primary dark:text-secondary text-xl"></i>
+                            </div>
+                            <span class="text-gray-700 dark:text-gray-300">24/7 Support</span>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-primary/10 dark:bg-secondary/10 p-2 rounded-lg mr-3">
+                                <i class="fas fa-check-circle text-primary dark:text-secondary text-xl"></i>
+                            </div>
+                            <span class="text-gray-700 dark:text-gray-300">Custom Solutions</span>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-primary/10 dark:bg-secondary/10 p-2 rounded-lg mr-3">
+                                <i class="fas fa-check-circle text-primary dark:text-secondary text-xl"></i>
+                            </div>
+                            <span class="text-gray-700 dark:text-gray-300">Global Reach</span>
+                        </div>
+                    </div>
+                    
+                    <a href="#contact" class="inline-flex items-center px-6 py-3 gradient-bg text-white rounded-lg font-medium hover:opacity-90 transition duration-300 shadow-lg">
+                        Learn More <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <div class="order-1 md:order-2 relative">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Our Team" class="w-full h-auto">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent flex items-end p-6">
+                            <div class="text-white">
+                                <h3 class="text-xl font-bold">Our Core Values</h3>
+                                <div class="flex flex-wrap gap-2 mt-2">
+                                    <span class="px-3 py-1 bg-primary/30 rounded-full text-sm">Excellence</span>
+                                    <span class="px-3 py-1 bg-primary/30 rounded-full text-sm">Innovation</span>
+                                    <span class="px-3 py-1 bg-primary/30 rounded-full text-sm">Integrity</span>
+                                    <span class="px-3 py-1 bg-primary/30 rounded-full text-sm">Collaboration</span>
+                                    <span class="px-3 py-1 bg-primary/30 rounded-full text-sm">Security</span>
+                                    <span class="px-3 py-1 bg-primary/30 rounded-full text-sm">Responsiveness</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 md:py-24 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-primary dark:text-secondary font-semibold">What We Do</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-4">Our <span class="gradient-text">Services</span></h2>
+                <p class="max-w-2xl mx-auto text-gray-600 dark:text-gray-300">
+                    Comprehensive technology solutions designed to secure, optimize, and transform your business operations.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- IT Infrastructure -->
+                <div class="service-card bg-white dark:bg-gray-900 rounded-xl p-6 shadow-md hover:shadow-xl transition duration-300 group">
+                    <div class="w-14 h-14 gradient-bg rounded-lg flex items-center justify-center text-white text-2xl mb-6">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 group-hover:text-primary dark:group-hover:text-secondary">IT Infrastructure</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                        Robust infrastructure solutions to support your digital operations.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-primary dark:text-secondary mr-2"></i>
+                            Cloud IaaS Solutions
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-primary dark:text-secondary mr-2"></i>
+                            Datacenter Design
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-primary dark:text-secondary mr-2"></i>
+                            VDI Implementation
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-primary dark:text-secondary mr-2"></i>
+                            Hyper-converged Systems
+                        </li>
+                    </ul>
+                    <a href="infrastructure.html" class="mt-4 inline-flex items-center text-primary dark:text-secondary font-medium hover:underline">
+                        Learn More <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Cybersecurity -->
+                <div class="service-card bg-white dark:bg-gray-900 rounded-xl p-6 shadow-md hover:shadow-xl transition duration-300 group">
+                    <div class="w-14 h-14 gradient-bg rounded-lg flex items-center justify-center text-white text-2xl mb-6">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 group-hover:text-primary dark:group-hover:text-secondary">Cybersecurity</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                        Comprehensive protection for your digital assets and infrastructure.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-primary dark:text-secondary mr-2"></i>
+                            Endpoint Protection
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-primary dark:text-secondary mr-2"></i>
+                            SIEM Solutions
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-primary dark:text-secondary mr-2"></i>
+                            Penetration Testing
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-primary dark:text-secondary mr-2"></i>
+                            ISO-certified Audits
+                        </li>
+                    </ul>
+                    <a href="cybersecurity.html" class="mt-4 inline-flex items-center text-primary dark:text-secondary font-medium hover:underline">
+                        Learn More <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Automation -->
+                <div class="service-card bg-white dark:bg-gray-900 rounded-xl p-6 shadow-md hover:shadow-xl transition duration-300 group">
+                    <div class="w-14 h-14 gradient-bg rounded-lg flex items-center justify-center text-white text-2xl mb-6">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 group-hover:text-primary dark:group-hover:text-secondary">Automation</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                        Streamline operations and boost efficiency with intelligent automation.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-primary dark:text-secondary mr-2"></i>
+                            Robotic Process Automation
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-primary dark:text-secondary mr-2"></i>
+                            ERP Systems
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-primary dark:text-secondary mr-2"></i>
+                            AI-driven Efficiency
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-primary dark:text-secondary mr-2"></i>
+                            Workflow Optimization
+                        </li>
+                    </ul>
+                    <a href="automation.html" class="mt-4 inline-flex items-center text-primary dark:text-secondary font-medium hover:underline">
+                        Learn More <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Training & Certifications -->
+                <div class="service-card bg-white dark:bg-gray-900 rounded-xl p-6 shadow-md hover:shadow-xl transition duration-300 group">
+                    <div class="w-14 h-14 gradient-bg rounded-lg flex items-center justify-center text-white text-2xl mb-6">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 group-hover:text-primary dark:group-hover:text-secondary">Training & Certifications</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                        Empower your team with cutting-edge knowledge and certifications.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-primary dark:text-secondary mr-2"></i>
+                            Leadership Training
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-primary dark:text-secondary mr-2"></i>
+                            Agile Transformation
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-primary dark:text-secondary mr-2"></i>
+                            Executive Coaching
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-primary dark:text-secondary mr-2"></i>
+                            Women in Tech Programs
+                        </li>
+                    </ul>
+                    <a href="training.html" class="mt-4 inline-flex items-center text-primary dark:text-secondary font-medium hover:underline">
+                        Learn More <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="mt-16 text-center">
+                <a href="#contact" class="inline-flex items-center px-8 py-4 gradient-bg text-white rounded-lg font-medium hover:opacity-90 transition duration-300 shadow-lg hover:shadow-xl">
+                    Request a Quote <i class="fas fa-paper-plane ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-16 gradient-bg text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="p-4">
+                    <div class="text-4xl md:text-5xl font-bold mb-2">15+</div>
+                    <div class="text-lg">Years in Business</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-4xl md:text-5xl font-bold mb-2">500+</div>
+                    <div class="text-lg">Clients Worldwide</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-4xl md:text-5xl font-bold mb-2">200+</div>
+                    <div class="text-lg">Certified Experts</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-4xl md:text-5xl font-bold mb-2">99%</div>
+                    <div class="text-lg">Client Satisfaction</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- R&D Section -->
+    <section id="rd" class="py-16 md:py-24 bg-white dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-primary dark:text-secondary font-semibold">Innovation</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-4">Research & <span class="gradient-text">Development</span></h2>
+                <p class="max-w-2xl mx-auto text-gray-600 dark:text-gray-300">
+                    Pioneering the future of technology through cutting-edge research and innovation.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="grid grid-cols-2 gap-6">
+                        <!-- AI Research -->
+                        <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl hover:shadow-lg transition duration-300">
+                            <div class="w-12 h-12 gradient-bg rounded-lg flex items-center justify-center text-white text-xl mb-4">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Artificial Intelligence</h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm">
+                                Developing AI solutions for predictive analytics, natural language processing, and computer vision applications.
+                            </p>
+                        </div>
+                        
+                        <!-- Blockchain -->
+                        <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl hover:shadow-lg transition duration-300">
+                            <div class="w-12 h-12 gradient-bg rounded-lg flex items-center justify-center text-white text-xl mb-4">
+                                <i class="fas fa-link"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Blockchain</h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm">
+                                Researching decentralized solutions for secure transactions, smart contracts, and digital identity verification.
+                            </p>
+                        </div>
+                        
+                        <!-- Data Science -->
+                        <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl hover:shadow-lg transition duration-300">
+                            <div class="w-12 h-12 gradient-bg rounded-lg flex items-center justify-center text-white text-xl mb-4">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Data Science</h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm">
+                                Advanced analytics and machine learning models to extract actionable insights from complex datasets.
+                            </p>
+                        </div>
+                        
+                        <!-- Publications -->
+                        <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl hover:shadow-lg transition duration-300">
+                            <div class="w-12 h-12 gradient-bg rounded-lg flex items-center justify-center text-white text-xl mb-4">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Publications</h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm">
+                                Contributing to scientific journals and conferences on emerging technologies and cybersecurity.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="Research Lab" class="w-full h-auto">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent flex items-end p-6">
+                            <div class="text-white">
+                                <h3 class="text-xl font-bold">Our Research Lab</h3>
+                                <p class="mt-2 text-sm">
+                                    State-of-the-art facilities equipped with the latest technology for groundbreaking research.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-16 text-center">
+                <a href="#contact" class="inline-flex items-center px-6 py-3 border border-primary dark:border-secondary text-primary dark:text-secondary rounded-lg font-medium hover:bg-primary/10 dark:hover:bg-secondary/10 transition duration-300">
+                    Collaborate With Us <i class="fas fa-handshake ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CSR Section -->
+    <section id="csr" class="py-16 md:py-24 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-primary dark:text-secondary font-semibold">Our Commitment</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-4">Corporate Social <span class="gradient-text">Responsibility</span></h2>
+                <p class="max-w-2xl mx-auto text-gray-600 dark:text-gray-300">
+                    Building a better future through responsible business practices and community engagement.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Community Impact -->
+                <div class="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-md hover:shadow-xl transition duration-300">
+                    <div class="w-14 h-14 gradient-bg rounded-lg flex items-center justify-center text-white text-2xl mb-6">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Community Impact</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                        We actively support education initiatives, digital literacy programs, and technology access for underserved communities.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-primary dark:text-secondary mr-2"></i>
+                            STEM Education Programs
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-primary dark:text-secondary mr-2"></i>
+                            Tech Scholarships
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-primary dark:text-secondary mr-2"></i>
+                            Community Training Centers
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Sustainability -->
+                <div class="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-md hover:shadow-xl transition duration-300">
+                    <div class="w-14 h-14 gradient-bg rounded-lg flex items-center justify-center text-white text-2xl mb-6">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Sustainability</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                        Committed to reducing our environmental footprint through eco-friendly operations and green technology solutions.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-primary dark:text-secondary mr-2"></i>
+                            Carbon Neutral Operations
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-primary dark:text-secondary mr-2"></i>
+                            E-Waste Recycling
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-primary dark:text-secondary mr-2"></i>
+                            Energy-efficient Data Centers
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Diversity & Inclusion -->
+                <div class="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-md hover:shadow-xl transition duration-300">
+                    <div class="w-14 h-14 gradient-bg rounded-lg flex items-center justify-center text-white text-2xl mb-6">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Diversity & Inclusion</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                        Fostering an inclusive workplace that values diversity and provides equal opportunities for all.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-primary dark:text-secondary mr-2"></i>
+                            Women in Tech Initiatives
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-primary dark:text-secondary mr-2"></i>
+                            Equal Opportunity Employer
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-primary dark:text-secondary mr-2"></i>
+                            Inclusive Hiring Practices
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="mt-16 bg-white dark:bg-gray-900 rounded-xl p-8 shadow-lg">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">Our Compliance & Certifications</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-6">
+                            SecurifyTech adheres to the highest international standards to ensure quality, security, and environmental responsibility in all our operations.
+                        </p>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="flex items-center">
+                                <img src="https://via.placeholder.com/80x80?text=ISO+9001" alt="ISO 9001" class="h-12 mr-3">
+                                <span class="text-sm font-medium">ISO 9001</span>
+                            </div>
+                            <div class="flex items-center">
+                                <img src="https://via.placeholder.com/80x80?text=ISO+27001" alt="ISO 27001" class="h-12 mr-3">
+                                <span class="text-sm font-medium">ISO 27001</span>
+                            </div>
+                            <div class="flex items-center">
+                                <img src="https://via.placeholder.com/80x80?text=ISO+14001" alt="ISO 14001" class="h-12 mr-3">
+                                <span class="text-sm font-medium">ISO 14001</span>
+                            </div>
+                            <div class="flex items-center">
+                                <img src="https://via.placeholder.com/80x80?text=ISO+45001" alt="ISO 45001" class="h-12 mr-3">
+                                <span class="text-sm font-medium">ISO 45001</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex justify-center">
+                        <img src="https://images.unsplash.com/photo-1521791055366-0d553872125f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" alt="Certifications" class="rounded-lg shadow-md max-h-80">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16 bg-white dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-primary dark:text-secondary font-semibold">Client Feedback</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-4">What Our <span class="gradient-text">Clients Say</span></h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-gray-50 dark:bg-gray-800 p-8 rounded-xl relative">
+                    <div class="absolute -top-5 left-6 w-10 h-10 rounded-full gradient-bg flex items-center justify-center text-white">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">
+                        "SecurifyTech transformed our IT infrastructure with their cloud solutions. Their team was professional, knowledgeable, and delivered beyond our expectations."
+                    </p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Ahmed Khan</h4>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">CEO, TechSolutions Ltd.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-gray-50 dark:bg-gray-800 p-8 rounded-xl relative">
+                    <div class="absolute -top-5 left-6 w-10 h-10 rounded-full gradient-bg flex items-center justify-center text-white">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">
+                        "Their cybersecurity audit identified vulnerabilities we didn't know existed. The remediation plan was comprehensive and implemented flawlessly."
+                    </p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Fatima Ali</h4>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">CTO, SecureBank</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-gray-50 dark:bg-gray-800 p-8 rounded-xl relative">
+                    <div class="absolute -top-5 left-6 w-10 h-10 rounded-full gradient-bg flex items-center justify-center text-white">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">
+                        "The RPA implementation reduced our processing time by 70%. SecurifyTech's automation expertise delivered tangible ROI within months."
+                    </p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Client" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Usman Malik</h4>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">Operations Director, RetailCorp</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 md:py-24 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-primary dark:text-secondary font-semibold">Get In Touch</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-4">Contact <span class="gradient-text">Us</span></h2>
+                <p class="max-w-2xl mx-auto text-gray-600 dark:text-gray-300">
+                    Ready to transform your business with our technology solutions? Reach out to our team today.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                    <div class="bg-white dark:bg-gray-900 rounded-xl p-8 shadow-lg">
+                        <h3 class="text-2xl font-bold mb-6">Send Us a Message</h3>
+                        <form>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                <div>
+                                    <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Name</label>
+                                    <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-primary dark:focus:ring-secondary focus:border-transparent dark:bg-gray-800">
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email</label>
+                                    <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-primary dark:focus:ring-secondary focus:border-transparent dark:bg-gray-800">
+                                </div>
+                            </div>
+                            <div class="mb-6">
+                                <label for="subject" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Subject</label>
+                                <input type="text" id="subject" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-primary dark:focus:ring-secondary focus:border-transparent dark:bg-gray-800">
+                            </div>
+                            <div class="mb-6">
+                                <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Message</label>
+                                <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-primary dark:focus:ring-secondary focus:border-transparent dark:bg-gray-800"></textarea>
+                            </div>
+                            <button type="submit" class="w-full px-6 py-3 gradient-bg text-white rounded-lg font-medium hover:opacity-90 transition duration-300 shadow-lg">
+                                Send Message <i class="fas fa-paper-plane ml-2"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="bg-white dark:bg-gray-900 rounded-xl p-8 shadow-lg h-full">
+                        <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 gradient-bg rounded-lg flex items-center justify-center text-white mr-4 mt-1">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-1">Headquarters</h4>
+                                    <p class="text-gray-600 dark:text-gray-300">
+                                        National Aerospace Science & Technology Park (NASTP),<br>
+                                        Islamabad, Pakistan
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 gradient-bg rounded-lg flex items-center justify-center text-white mr-4 mt-1">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-1">Phone</h4>
+                                    <p class="text-gray-600 dark:text-gray-300">
+                                        <a href="tel:+971561222074" class="hover:underline">+971 56 122 2074</a> (Mobile)<br>
+                                        <a href="tel:+923330533560" class="hover:underline">+92 333 0533560</a> (Mobile)
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 gradient-bg rounded-lg flex items-center justify-center text-white mr-4 mt-1">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-1">Email</h4>
+                                    <p class="text-gray-600 dark:text-gray-300">
+                                        <a href="mailto:info@securifytech.com" class="hover:underline">info@securifytech.com</a><br>
+                                        <a href="mailto:support@securifytech.com" class="hover:underline">support@securifytech.com</a>
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 gradient-bg rounded-lg flex items-center justify-center text-white mr-4 mt-1">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-1">Business Hours</h4>
+                                    <p class="text-gray-600 dark:text-gray-300">
+                                        Monday - Friday: 9:00 AM - 6:00 PM<br>
+                                        Saturday: 10:00 AM - 4:00 PM<br>
+                                        Sunday: Closed
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="font-bold mb-4">Follow Us</h4>
+                            <div class="flex space-x-4">
+                                <a href="https://x.com/Securifytech" class="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-primary hover:text-white dark:hover:bg-secondary transition duration-300">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/company/securifytech" class="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-primary hover:text-white dark:hover:bg-secondary transition duration-300">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="https://www.instagram.com/securifytech/" class="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-primary hover:text-white dark:hover:bg-secondary transition duration-300">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="https://www.youtube.com/@SecurifyTech" class="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-primary hover:text-white dark:hover:bg-secondary transition duration-300">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <div class="h-96 w-full">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3322.9132619183124!2d73.09735577641949!3d33.60755494107895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38dfeb6bb5c0b649%3A0xb15572084afd9b0e!2sNational%20Aerospace%20Science%20and%20Technology%20Park%20(NASTP)!5e0!3m2!1sen!2sus!4v1746295964136!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <a href="#" class="flex items-center mb-6">
+                        <div class="w-10 h-10 rounded-full gradient-bg flex items-center justify-center text-white font-bold text-xl mr-2">ST</div>
+                        <span class="text-xl font-bold text-white">SecurifyTech</span>
+                    </a>
+                    <p class="mb-4">
+                        Your Vision, Our Tech - Delivering innovative, high-quality, and secure digital transformation solutions.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://x.com/Securifytech" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/securifytech" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://www.instagram.com/securifytech/" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="hover:text-white transition duration-300">Home</a></li>
+                        <li><a href="#about" class="hover:text-white transition duration-300">About Us</a></li>
+                        <li><a href="#services" class="hover:text-white transition duration-300">Services</a></li>
+                        <li><a href="#rd" class="hover:text-white transition duration-300">Research & Development</a></li>
+                        <li><a href="#csr" class="hover:text-white transition duration-300">CSR</a></li>
+                        <li><a href="#contact" class="hover:text-white transition duration-300">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white transition duration-300">IT Infrastructure</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-300">Cybersecurity</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-300">Automation</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-300">Training & Certifications</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-300">Consulting</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-300">Managed Services</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">Newsletter</h3>
+                    <p class="mb-4">
+                        Subscribe to our newsletter for the latest updates and insights.
+                    </p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email" class="px-4 py-2 w-full rounded-l-lg focus:outline-none text-gray-900">
+                        <button type="submit" class="gradient-bg text-white px-4 py-2 rounded-r-lg hover:opacity-90 transition duration-300">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                    <div class="mt-6">
+                        <h4 class="text-white text-lg font-semibold mb-2">Certifications</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <img src="https://via.placeholder.com/60x30?text=ISO+9001" alt="ISO 9001" class="h-8">
+                            <img src="https://via.placeholder.com/60x30?text=ISO+27001" alt="ISO 27001" class="h-8">
+                            <img src="https://via.placeholder.com/60x30?text=ISO+14001" alt="ISO 14001" class="h-8">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">
+                    &copy; 2023 SecurifyTech. All rights reserved.
+                </p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition duration-300">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition duration-300">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition duration-300">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const menu = document.getElementById('menu');
+        
+        menuBtn.addEventListener('click', () => {
+            menuBtn.classList.toggle('open');
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('flex');
+        });
+        
+        // Theme toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+        
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+        
+        const toggleTheme = () => {
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+        };
+        
+        themeToggle.addEventListener('click', toggleTheme);
+        themeToggleMobile.addEventListener('click', toggleTheme);
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!menu.classList.contains('hidden')) {
+                        menuBtn.classList.remove('open');
+                        menu.classList.add('hidden');
+                        menu.classList.remove('flex');
+                    }
+                }
+            });
+        });
+        
+        // Scroll animation
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.animate-fade-in, .animate-slide-up');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementPosition < windowHeight - 100) {
+                    element.classList.add('opacity-100');
+                }
+            });
+        };
+        
+        // Set initial state
+        document.querySelectorAll('.animate-fade-in, .animate-slide-up').forEach(el => {
+            el.classList.add('opacity-0');
+        });
+        
+        // Add event listener
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+        
+        // Trigger once on load
+        animateOnScroll();
+    </script>
+</body>
+</html>
