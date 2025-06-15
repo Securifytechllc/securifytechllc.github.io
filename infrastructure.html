@@ -4,6 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>IT Infrastructure | SecurifyTech</title>
+  <script>
+    tailwind.config = {
+      darkMode: 'class'
+    }
+  </script>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
@@ -21,9 +26,16 @@
       background: linear-gradient(135deg, #0066ff, #00c4ff);
     }
   </style>
+  <script>
+    if (localStorage.getItem('theme') === 'dark' ||
+        (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  </script>
 </head>
 <body class="bg-light dark:bg-dark text-gray-800 dark:text-gray-200 transition-colors duration-300">
-
   <div class="max-w-3xl mx-auto px-4 py-12">
     <div class="text-center">
       <div class="text-sm text-gray-500 dark:text-gray-400 mb-2">Written by <span class="font-semibold text-primary dark:text-secondary">Babar Shahzad</span></div>
@@ -31,35 +43,49 @@
       <p class="text-lg text-gray-600 dark:text-gray-300">Building the digital backbone of your business for stability, security, and scalability.</p>
     </div>
 
-    <div class="mt-10 space-y-6 text-gray-700 dark:text-gray-300">
-      <p>IT infrastructure forms the core of all modern businesses. At SecurifyTech, we design and implement reliable, secure, and future-ready infrastructure solutions tailored to your organization’s needs. Our team ensures seamless integration of technology into your operations to keep your business agile and competitive.</p>
+    <div class="mt-10 space-y-6">
+      <p>IT infrastructure forms the core of all modern businesses. At SecurifyTech, we design and implement reliable, secure, and future-ready infrastructure solutions tailored to your organization’s needs.</p>
 
       <h2 class="text-2xl font-semibold gradient-text">Our Key Offerings</h2>
       <ul class="list-disc pl-5 space-y-2">
-        <li><strong>Cloud IaaS Solutions:</strong> Deploy scalable infrastructure in the cloud with minimal capital expenditure. We offer custom cloud environments optimized for performance, security, and compliance.</li>
-        <li><strong>Datacenter Design & Deployment:</strong> From concept to implementation, we build high-efficiency data centers that support current and future workloads with redundancy, cooling, and disaster recovery planning.</li>
-        <li><strong>Virtual Desktop Infrastructure (VDI):</strong> Empower your remote workforce with secure, centrally managed virtual desktops, ensuring accessibility without compromising security.</li>
-        <li><strong>Hyper-Converged Infrastructure:</strong> Simplify IT with a unified solution that combines compute, storage, and networking into one appliance, reducing management complexity and operational cost.</li>
+        <li><strong>Cloud IaaS Solutions:</strong> Deploy scalable infrastructure in the cloud with minimal capital expenditure.</li>
+        <li><strong>Datacenter Design & Deployment:</strong> From concept to implementation with redundancy and disaster recovery.</li>
+        <li><strong>Virtual Desktop Infrastructure (VDI):</strong> Secure, centrally managed virtual desktops for remote teams.</li>
+        <li><strong>Hyper-Converged Infrastructure:</strong> Unified compute, storage, and networking for simplicity and cost savings.</li>
       </ul>
 
       <h2 class="text-2xl font-semibold gradient-text">Why Choose SecurifyTech?</h2>
-      <p>We bring over 15 years of experience and a proven track record in IT infrastructure for enterprises across multiple sectors. Our ISO-certified practices, 24/7 monitoring, and proactive support model ensure your infrastructure runs smoothly and securely.</p>
+      <p>We bring 15+ years of experience and a proven record in secure, high-performance IT systems, 24/7 monitoring, and scalable digital environments.</p>
 
       <div class="mt-6 p-6 bg-white dark:bg-gray-900 shadow-xl rounded-lg">
         <h3 class="text-xl font-bold mb-2">Real Impact</h3>
-        <p>With over 500 satisfied clients worldwide and more than 200 certified experts, we transform traditional IT into high-performing digital environments that drive real business outcomes.</p>
+        <p>500+ clients served and 200+ certified experts helping to power modern infrastructure transformation.</p>
       </div>
 
       <div class="mt-10 flex items-center justify-between">
         <a href="index.html#services" class="inline-block px-6 py-3 gradient-bg text-white rounded-lg font-medium shadow hover:opacity-90 transition duration-300">
           ← Back to Services
         </a>
-        <div class="text-sm text-gray-500 dark:text-gray-400 flex items-center">
+        <div class="text-sm text-gray-600 dark:text-gray-400 flex items-center">
           <i class="fas fa-heart text-red-500 mr-1"></i> 3.8K Likes
         </div>
       </div>
     </div>
   </div>
 
+  <div class="fixed bottom-4 right-4 z-50">
+    <button id="appearance-toggle" class="p-3 rounded-full shadow-lg bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 border border-gray-300 dark:border-gray-700 hover:shadow-xl transition">
+      <i class="fas fa-moon dark:hidden"></i>
+      <i class="fas fa-sun hidden dark:inline"></i>
+    </button>
+  </div>
+  <script>
+    const toggle = document.getElementById('appearance-toggle');
+    toggle.addEventListener('click', () => {
+      const html = document.documentElement;
+      const isDark = html.classList.toggle('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+  </script>
 </body>
 </html>
