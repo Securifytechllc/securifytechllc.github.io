@@ -21,6 +21,14 @@
       background: linear-gradient(135deg, #0066ff, #00c4ff);
     }
   </style>
+  <script>
+    if (localStorage.getItem('theme') === 'dark' || 
+        (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  </script>
 </head>
 <body class="bg-light dark:bg-dark text-gray-800 dark:text-gray-200 transition-colors duration-300">
 
@@ -31,7 +39,7 @@
       <p class="text-lg text-gray-600 dark:text-gray-300">Accelerating productivity and precision with smart automation.</p>
     </div>
 
-    <div class="mt-10 space-y-6 text-gray-700 dark:text-gray-300">
+    <div class="mt-10 space-y-6">
       <p>Automation is at the heart of every modern enterprise. At SecurifyTech, we help organizations transform manual tasks into automated processes that save time, reduce errors, and boost overall efficiency. Our solutions are intelligent, scalable, and tailored to your business workflows.</p>
 
       <h2 class="text-2xl font-semibold gradient-text">Our Automation Services</h2>
@@ -54,7 +62,7 @@
         <a href="index.html#services" class="inline-block px-6 py-3 gradient-bg text-white rounded-lg font-medium shadow hover:opacity-90 transition duration-300">
           ← Back to Services
         </a>
-        <div class="text-sm text-gray-500 dark:text-gray-400 flex items-center">
+        <div class="text-sm text-gray-600 dark:text-gray-400 flex items-center">
           <i class="fas fa-heart text-red-500 mr-1"></i> 3.5K Likes
         </div>
       </div>
