@@ -21,9 +21,16 @@
       background: linear-gradient(135deg, #0066ff, #00c4ff);
     }
   </style>
+  <script>
+    if (localStorage.getItem('theme') === 'dark' || 
+        (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  </script>
 </head>
 <body class="bg-light dark:bg-dark text-gray-800 dark:text-gray-200 transition-colors duration-300">
-
   <div class="max-w-3xl mx-auto px-4 py-12">
     <div class="text-center">
       <div class="text-sm text-gray-500 dark:text-gray-400 mb-2">Written by <span class="font-semibold text-primary dark:text-secondary">Babar Shahzad</span></div>
@@ -31,7 +38,7 @@
       <p class="text-lg text-gray-600 dark:text-gray-300">Empowering your workforce with the knowledge and skills of tomorrow.</p>
     </div>
 
-    <div class="mt-10 space-y-6 text-gray-700 dark:text-gray-300">
+    <div class="mt-10 space-y-6">
       <p>At SecurifyTech, we believe that technology alone is not enough—people must be empowered to use it effectively. Our Training & Certification programs are designed to build expert capabilities in cybersecurity, leadership, innovation, and digital transformation. We enable teams to stay ahead of the curve through real-world knowledge and globally recognized credentials.</p>
 
       <h2 class="text-2xl font-semibold gradient-text">Our Training Areas</h2>
@@ -60,12 +67,11 @@
         <a href="index.html#services" class="inline-block px-6 py-3 gradient-bg text-white rounded-lg font-medium shadow hover:opacity-90 transition duration-300">
           ← Back to Services
         </a>
-        <div class="text-sm text-gray-500 dark:text-gray-400 flex items-center">
+        <div class="text-sm text-gray-600 dark:text-gray-400 flex items-center">
           <i class="fas fa-heart text-red-500 mr-1"></i> 3.2K Likes
         </div>
       </div>
     </div>
   </div>
-
 </body>
 </html>
