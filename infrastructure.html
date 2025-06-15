@@ -21,9 +21,16 @@
       background: linear-gradient(135deg, #0066ff, #00c4ff);
     }
   </style>
+  <script>
+    if (localStorage.getItem('theme') === 'dark' || 
+        (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  </script>
 </head>
 <body class="bg-light dark:bg-dark text-gray-800 dark:text-gray-200 transition-colors duration-300">
-
   <div class="max-w-3xl mx-auto px-4 py-12">
     <div class="text-center">
       <div class="text-sm text-gray-500 dark:text-gray-400 mb-2">Written by <span class="font-semibold text-primary dark:text-secondary">Babar Shahzad</span></div>
@@ -31,7 +38,7 @@
       <p class="text-lg text-gray-600 dark:text-gray-300">Building the digital backbone of your business for stability, security, and scalability.</p>
     </div>
 
-    <div class="mt-10 space-y-6 text-gray-700 dark:text-gray-300">
+    <div class="mt-10 space-y-6">
       <p>IT infrastructure forms the core of all modern businesses. At SecurifyTech, we design and implement reliable, secure, and future-ready infrastructure solutions tailored to your organization’s needs. Our team ensures seamless integration of technology into your operations to keep your business agile and competitive.</p>
 
       <h2 class="text-2xl font-semibold gradient-text">Our Key Offerings</h2>
@@ -54,12 +61,11 @@
         <a href="index.html#services" class="inline-block px-6 py-3 gradient-bg text-white rounded-lg font-medium shadow hover:opacity-90 transition duration-300">
           ← Back to Services
         </a>
-        <div class="text-sm text-gray-500 dark:text-gray-400 flex items-center">
+        <div class="text-sm text-gray-600 dark:text-gray-400 flex items-center">
           <i class="fas fa-heart text-red-500 mr-1"></i> 3.8K Likes
         </div>
       </div>
     </div>
   </div>
-
 </body>
 </html>
