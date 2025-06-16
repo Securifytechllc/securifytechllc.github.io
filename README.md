@@ -1,10 +1,5 @@
 ## Hi there 👋
 
-<!--
-**Securifytechllc/securifytechllc** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-
-Here are some ideas to get you started:
-
 - 🔭 I’m currently working on cutting-edge cybersecurity solutions to help businesses protect their digital assets.
 
 - 🌱 I’m currently learning AI-driven threat detection and real-time vulnerability analysis.
@@ -20,4 +15,4 @@ Here are some ideas to get you started:
  -😄 Pronouns: We/Us (Team Securifytech)
 
 - ⚡ Fun fact: We believe that great security is invisible—but your data should never be
--->
+
