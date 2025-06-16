@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulting Services | Digital Strategy Experts</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            light: '#3b82f6',
+                            dark: '#2563eb'
+                        },
+                        secondary: {
+                            light: '#10b981',
+                            dark: '#059669'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        .gradient-text {
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            background-image: linear-gradient(90deg, #3b82f6, #10b981);
+        }
+        
+        .dark .gradient-text {
+            background-image: linear-gradient(90deg, #60a5fa, #34d399);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .dark .card-hover:hover {
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+        }
+        
+        .impact-card {
+            background: linear-gradient(135deg, #3b82f6, #10b981);
+        }
+        
+        .dark .impact-card {
+            background: linear-gradient(135deg, #2563eb, #059669);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-200">
+    <!-- Theme Toggle -->
+    <button id="theme-toggle" class="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full shadow-lg bg-white dark:bg-gray-800 flex items-center justify-center text-yellow-500 dark:text-yellow-400 hover:scale-110 transition-transform">
+        <i class="fas fa-sun text-xl" id="theme-icon"></i>
+    </button>
+
+    <!-- Header -->
+    <header class="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">Strategic Consulting Services</h1>
+            <p class="text-gray-600 dark:text-gray-400 mb-2">Expert guidance for your digital transformation journey</p>
+            <p class="text-sm text-gray-500 dark:text-gray-500 italic">Written by Babar Shahzad</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto pb-16">
+        <!-- Intro -->
+        <section class="mb-16">
+            <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md card-hover transition-all duration-300">
+                <p class="text-lg leading-relaxed">
+                    In today's rapidly evolving digital landscape, organizations need strategic consulting to navigate complex technological changes, optimize operations, and maintain competitive advantage. Our consulting services provide tailored solutions that align technology with business objectives, ensuring sustainable growth and digital excellence.
+                </p>
+            </div>
+        </section>
+
+        <!-- Services Grid -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold mb-8 text-center">Our Consulting Expertise</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md card-hover transition-all duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center mr-4">
+                            <i class="fas fa-road text-blue-600 dark:text-blue-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Technology Strategy & Roadmap</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400">
+                        Develop comprehensive technology strategies with clear roadmaps that align with your business goals. We assess current infrastructure, identify gaps, and create phased implementation plans for optimal technology adoption.
+                    </p>
+                    <ul class="mt-4 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Future-proof architecture planning</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Emerging technology assessment</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Investment prioritization framework</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md card-hover transition-all duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-purple-100 dark:bg-purple-900 flex items-center justify-center mr-4">
+                            <i class="fas fa-shield-alt text-purple-600 dark:text-purple-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">IT Governance & Compliance</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400">
+                        Establish robust IT governance frameworks that ensure regulatory compliance while enabling business agility. Our experts help implement policies, controls, and risk management practices tailored to your industry.
+                    </p>
+                    <ul class="mt-4 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Regulatory compliance assessments</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Security framework implementation</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Audit preparation & remediation</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md card-hover transition-all duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center mr-4">
+                            <i class="fas fa-project-diagram text-green-600 dark:text-green-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Business Process Optimization</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400">
+                        Transform operational efficiency through data-driven process analysis and redesign. We identify bottlenecks, eliminate redundancies, and implement automation solutions that drive productivity and cost savings.
+                    </p>
+                    <ul class="mt-4 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>End-to-end process mapping</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Workflow automation strategies</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Continuous improvement frameworks</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md card-hover transition-all duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-indigo-100 dark:bg-indigo-900 flex items-center justify-center mr-4">
+                            <i class="fas fa-robot text-indigo-600 dark:text-indigo-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Digital Transformation Advisory</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400">
+                        Guide your organization through comprehensive digital transformation with our strategic advisory services. We help reimagine customer experiences, operational models, and business ecosystems for the digital age.
+                    </p>
+                    <ul class="mt-4 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Digital maturity assessment</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Change management strategies</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Innovation adoption frameworks</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Industries Section -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold mb-8 text-center">Industries We Serve</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <!-- Industry 1 -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm flex flex-col items-center text-center hover:shadow-md transition-shadow">
+                    <div class="w-16 h-16 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center mb-3">
+                        <i class="fas fa-university text-blue-600 dark:text-blue-400 text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold">Finance & Banking</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">RegTech, digital banking, risk management</p>
+                </div>
+                
+                <!-- Industry 2 -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm flex flex-col items-center text-center hover:shadow-md transition-shadow">
+                    <div class="w-16 h-16 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center mb-3">
+                        <i class="fas fa-heartbeat text-green-600 dark:text-green-400 text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold">Healthcare</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">Telemedicine, EHR optimization, compliance</p>
+                </div>
+                
+                <!-- Industry 3 -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm flex flex-col items-center text-center hover:shadow-md transition-shadow">
+                    <div class="w-16 h-16 rounded-full bg-purple-100 dark:bg-purple-900 flex items-center justify-center mb-3">
+                        <i class="fas fa-landmark text-purple-600 dark:text-purple-400 text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold">Government</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">Digital services, cybersecurity, cloud adoption</p>
+                </div>
+                
+                <!-- Industry 4 -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm flex flex-col items-center text-center hover:shadow-md transition-shadow">
+                    <div class="w-16 h-16 rounded-full bg-red-100 dark:bg-red-900 flex items-center justify-center mb-3">
+                        <i class="fas fa-shopping-cart text-red-600 dark:text-red-400 text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold">Retail & E-commerce</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">Omnichannel, personalization, supply chain</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Impact Card -->
+        <section class="mb-16">
+            <div class="impact-card rounded-2xl p-8 text-white">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                    <div>
+                        <p class="text-4xl font-bold">200+</p>
+                        <p class="text-sm opacity-90">Organizations Guided</p>
+                    </div>
+                    <div>
+                        <p class="text-4xl font-bold">95%</p>
+                        <p class="text-sm opacity-90">Satisfaction Rate</p>
+                    </div>
+                    <div>
+                        <p class="text-4xl font-bold">15+</p>
+                        <p class="text-sm opacity-90">Years Experience</p>
+                    </div>
+                    <div>
+                        <p class="text-4xl font-bold">50+</p>
+                        <p class="text-sm opacity-90">Industry Awards</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Footer CTA -->
+        <section class="flex flex-col items-center">
+            <a href="#" class="px-6 py-3 bg-primary-light dark:bg-primary-dark text-white rounded-lg font-medium hover:opacity-90 transition-opacity mb-6">
+                <i class="fas fa-arrow-left mr-2"></i> Back to Services
+            </a>
+            
+            <div class="flex items-center space-x-4">
+                <button class="flex items-center space-x-1 text-gray-600 dark:text-gray-400 hover:text-primary-light dark:hover:text-primary-dark transition-colors">
+                    <i class="far fa-thumbs-up text-xl"></i>
+                    <span>2.9K Likes</span>
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        
+        // Check for saved theme preference or use system preference
+        if (localStorage.getItem('color-theme') === 'dark' || (!localStorage.getItem('color-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            themeIcon.classList.replace('fa-sun', 'fa-moon');
+        } else {
+            document.documentElement.classList.remove('dark');
+            themeIcon.classList.replace('fa-moon', 'fa-sun');
+        }
+        
+        // Toggle theme on button click
+        themeToggle.addEventListener('click', function() {
+            // Toggle icon
+            themeIcon.classList.toggle('fa-sun');
+            themeIcon.classList.toggle('fa-moon');
+            
+            // Toggle theme
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('color-theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('color-theme', 'dark');
+            }
+        });
+        
+        // Like counter animation
+        const likeButton = document.querySelector('.far.fa-thumbs-up').parentElement;
+        likeButton.addEventListener('click', function() {
+            const likeIcon = this.querySelector('i');
+            likeIcon.classList.replace('far', 'fas');
+            likeIcon.classList.add('animate-ping');
+            
+            setTimeout(() => {
+                likeIcon.classList.remove('animate-ping');
+            }, 300);
+        });
+    </script>
+</body>
+</html>
