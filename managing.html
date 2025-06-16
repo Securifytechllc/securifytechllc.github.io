@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Managed Services | IT Operations Excellence</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            light: '#3b82f6',
+                            dark: '#60a5fa'
+                        },
+                        secondary: {
+                            light: '#10b981',
+                            dark: '#34d399'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        .gradient-text {
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            background-image: linear-gradient(90deg, #3b82f6, #10b981);
+        }
+        
+        .dark .gradient-text {
+            background-image: linear-gradient(90deg, #60a5fa, #34d399);
+        }
+        
+        .service-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .impact-card {
+            background: linear-gradient(135deg, #3b82f6, #10b981);
+        }
+        
+        .dark .impact-card {
+            background: linear-gradient(135deg, #60a5fa, #34d399);
+        }
+        
+        .theme-toggle {
+            transition: transform 0.3s;
+        }
+        
+        .theme-toggle:hover {
+            transform: rotate(30deg);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100">
+    <!-- Theme Toggle Button -->
+    <button id="themeToggle" class="fixed bottom-6 right-6 z-50 p-3 rounded-full shadow-lg bg-white dark:bg-gray-800 text-gray-800 dark:text-yellow-300 hover:shadow-xl theme-toggle">
+        <i id="themeIcon" class="fas fa-sun text-xl"></i>
+    </button>
+
+    <!-- Header -->
+    <header class="py-6 px-4 sm:px-6 lg:px-8">
+        <div class="container mx-auto">
+            <h1 class="text-4xl md:text-5xl font-bold mb-2 gradient-text">Managed Services</h1>
+            <p class="text-sm text-gray-500 dark:text-gray-400">Written by Babar Shahzad</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Intro Section -->
+        <section class="mb-16">
+            <div class="max-w-3xl mx-auto">
+                <p class="text-lg md:text-xl leading-relaxed mb-6">
+                    In today's digital landscape, managed services are the backbone of reliable IT operations, robust security, and uninterrupted business continuity. Our comprehensive solutions ensure your technology infrastructure operates at peak performance while allowing you to focus on your core business objectives.
+                </p>
+                <div class="h-1 w-20 bg-primary-light dark:bg-primary-dark rounded-full mb-8"></div>
+            </div>
+        </section>
+
+        <!-- Services Grid -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold mb-12 text-center">Our Comprehensive Managed Services</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md hover:shadow-lg border-l-4 border-primary-light dark:border-primary-dark">
+                    <div class="flex items-start mb-4">
+                        <div class="p-3 rounded-lg bg-blue-50 dark:bg-blue-900/30 mr-4">
+                            <i class="fas fa-desktop text-primary-light dark:text-primary-dark text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold">24/7 Infrastructure Monitoring</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                        Proactive monitoring of your entire IT infrastructure with real-time alerts and automated responses to potential issues before they impact your business.
+                    </p>
+                    <ul class="space-y-2 text-gray-600 dark:text-gray-300">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            <span>Network performance tracking</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            <span>Server health monitoring</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            <span>Application availability checks</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-card bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md hover:shadow-lg border-l-4 border-secondary-light dark:border-secondary-dark">
+                    <div class="flex items-start mb-4">
+                        <div class="p-3 rounded-lg bg-green-50 dark:bg-green-900/30 mr-4">
+                            <i class="fas fa-cloud text-secondary-light dark:text-secondary-dark text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold">Managed Cloud Services</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                        Expert management of your cloud environments across AWS, Azure, and Google Cloud with optimization for performance, security, and cost-efficiency.
+                    </p>
+                    <ul class="space-y-2 text-gray-600 dark:text-gray-300">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            <span>Cloud migration planning</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            <span>Resource optimization</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            <span>Multi-cloud management</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-card bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md hover:shadow-lg border-l-4 border-yellow-500">
+                    <div class="flex items-start mb-4">
+                        <div class="p-3 rounded-lg bg-yellow-50 dark:bg-yellow-900/30 mr-4">
+                            <i class="fas fa-sync-alt text-yellow-500 text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold">Patch Management & Updates</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                        Systematic approach to keeping all systems updated with the latest security patches and software versions, minimizing vulnerabilities.
+                    </p>
+                    <ul class="space-y-2 text-gray-600 dark:text-gray-300">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            <span>Automated patch deployment</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            <span>Change management integration</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            <span>Compliance reporting</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="service-card bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md hover:shadow-lg border-l-4 border-red-500">
+                    <div class="flex items-start mb-4">
+                        <div class="p-3 rounded-lg bg-red-50 dark:bg-red-900/30 mr-4">
+                            <i class="fas fa-shield-alt text-red-500 text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold">Security & Compliance Oversight</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                        Comprehensive security management including threat detection, vulnerability assessments, and compliance with industry regulations.
+                    </p>
+                    <ul class="space-y-2 text-gray-600 dark:text-gray-300">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            <span>Continuous security monitoring</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            <span>GDPR/HIPAA/SOC2 compliance</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            <span>Incident response planning</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Industries Section -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold mb-12 text-center">Industries We Serve</h2>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Industry 1 -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow">
+                    <div class="flex items-center mb-4">
+                        <div class="p-3 rounded-lg bg-blue-100 dark:bg-blue-900/30 mr-4">
+                            <i class="fas fa-university text-blue-500 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Finance & Banking</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Secure, compliant solutions for financial institutions requiring high availability and strict data protection.
+                    </p>
+                </div>
+
+                <!-- Industry 2 -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow">
+                    <div class="flex items-center mb-4">
+                        <div class="p-3 rounded-lg bg-green-100 dark:bg-green-900/30 mr-4">
+                            <i class="fas fa-hospital text-green-500 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Healthcare</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        HIPAA-compliant managed services ensuring patient data security and system reliability.
+                    </p>
+                </div>
+
+                <!-- Industry 3 -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow">
+                    <div class="flex items-center mb-4">
+                        <div class="p-3 rounded-lg bg-purple-100 dark:bg-purple-900/30 mr-4">
+                            <i class="fas fa-industry text-purple-500 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Manufacturing</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Industrial IT solutions supporting operational technology and supply chain management.
+                    </p>
+                </div>
+
+                <!-- Industry 4 -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow">
+                    <div class="flex items-center mb-4">
+                        <div class="p-3 rounded-lg bg-indigo-100 dark:bg-indigo-900/30 mr-4">
+                            <i class="fas fa-laptop-code text-indigo-500 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Technology & Startups</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Scalable infrastructure solutions that grow with your business from MVP to enterprise.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Impact Card -->
+        <section class="mb-16">
+            <div class="impact-card rounded-2xl p-8 text-white shadow-lg">
+                <div class="max-w-4xl mx-auto">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-6">The Impact of Our Managed Services</h2>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                        <div class="text-center">
+                            <div class="text-3xl md:text-4xl font-bold mb-2">99.9%</div>
+                            <div class="text-sm md:text-base">Uptime SLA</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl md:text-4xl font-bold mb-2">400+</div>
+                            <div class="text-sm md:text-base">Clients Supported</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl md:text-4xl font-bold mb-2">24/7</div>
+                            <div class="text-sm md:text-base">Support Coverage</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl md:text-4xl font-bold mb-2">30%</div>
+                            <div class="text-sm md:text-base">Cost Reduction Avg.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="text-center">
+            <a href="#" class="inline-block bg-primary-light dark:bg-primary-dark hover:bg-primary-light/90 dark:hover:bg-primary-dark/90 text-white font-medium py-3 px-6 rounded-lg transition-colors mb-6">
+                <i class="fas fa-arrow-left mr-2"></i> Back to Services
+            </a>
+            <div class="flex items-center justify-center space-x-2">
+                <button id="likeBtn" class="text-gray-600 dark:text-gray-300 hover:text-red-500 transition-colors">
+                    <i class="far fa-heart text-xl"></i>
+                </button>
+                <span id="likeCount" class="text-gray-600 dark:text-gray-300">3.1K Likes</span>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Theme Toggle Logic
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        const html = document.documentElement;
+        
+        // Check for saved user preference or system preference
+        const userTheme = localStorage.getItem('theme');
+        const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        if (userTheme === 'dark' || (!userTheme && systemDark)) {
+            html.classList.add('dark');
+            themeIcon.classList.replace('fa-sun', 'fa-moon');
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            const isDark = html.classList.contains('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            
+            if (isDark) {
+                themeIcon.classList.replace('fa-sun', 'fa-moon');
+            } else {
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+            }
+        });
+        
+        // Like Button Logic
+        const likeBtn = document.getElementById('likeBtn');
+        const likeCount = document.getElementById('likeCount');
+        let likes = 3100;
+        let liked = false;
+        
+        likeBtn.addEventListener('click', () => {
+            if (!liked) {
+                likes++;
+                likeBtn.innerHTML = '<i class="fas fa-heart text-xl text-red-500"></i>';
+                likeCount.textContent = formatLikeCount(likes) + ' Likes';
+                liked = true;
+            } else {
+                likes--;
+                likeBtn.innerHTML = '<i class="far fa-heart text-xl"></i>';
+                likeCount.textContent = formatLikeCount(likes) + ' Likes';
+                liked = false;
+            }
+        });
+        
+        function formatLikeCount(count) {
+            if (count >= 1000) {
+                return (count / 1000).toFixed(1) + 'K';
+            }
+            return count;
+        }
+    </script>
+</body>
+</html>
