@@ -13,14 +13,8 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: {
-                            light: '#3b82f6',
-                            dark: '#2563eb'
-                        },
-                        secondary: {
-                            light: '#10b981',
-                            dark: '#059669'
-                        }
+                        primary: '#003b5a', /* Darker blue */
+                        secondary: '#00b5d8', /* Lighter blue */
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
@@ -36,245 +30,221 @@
             font-family: 'Inter', sans-serif;
             transition: background-color 0.3s, color 0.3s;
         }
-        
-        .gradient-bg {
-            background: linear-gradient(135deg, #3b82f6 0%, #10b981 100%);
+
+        .gradient-text {
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            background-image: linear-gradient(90deg, var(--tw-primary), var(--tw-secondary));
         }
         
-        .dark .gradient-bg {
-            background: linear-gradient(135deg, #2563eb 0%, #059669 100%);
+        .dark .gradient-text {
+            background-image: linear-gradient(90deg, var(--tw-primary), var(--tw-secondary));
+        }
+
+        .impact-card {
+            background: linear-gradient(135deg, var(--tw-primary), var(--tw-secondary));
         }
         
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
-        }
-        
-        .dark .service-card:hover {
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
-        }
-        
-        .theme-toggle {
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .dark .theme-toggle {
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        .dark .impact-card {
+            background: linear-gradient(135deg, var(--tw-primary), var(--tw-secondary));
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100">
-    <!-- Header/Navigation would go here (same as index.html) -->
-    
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <!-- Hero Section -->
-        <section class="text-center mb-16">
-            <h1 class="text-4xl md:text-5xl font-bold mb-6">Modern IT Infrastructure Solutions</h1>
-            <p class="text-xl max-w-3xl mx-auto text-gray-600 dark:text-gray-300">
-                We design, deploy, and manage enterprise-grade IT infrastructure that scales with your business needs while optimizing costs and performance.
-            </p>
-        </section>
-        
-        <!-- Services Grid -->
-        <section class="mb-20">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-                <!-- Cloud IaaS -->
-                <div class="service-card bg-white dark:bg-gray-800 rounded-xl p-8 shadow-md transition-all duration-300">
-                    <div class="w-14 h-14 gradient-bg rounded-lg flex items-center justify-center mb-6">
-                        <i class="fas fa-cloud text-white text-2xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-semibold mb-3">Cloud IaaS Solutions</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mb-4">
-                        Fully managed cloud infrastructure with AWS, Azure, or Google Cloud. We handle migration, optimization, and 24/7 monitoring.
-                    </p>
-                    <ul class="space-y-2 text-gray-600 dark:text-gray-300">
-                        <li class="flex items-center">
-                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                            Hybrid cloud architecture
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                            Cost optimization strategies
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                            Disaster recovery planning
-                        </li>
-                    </ul>
-                </div>
-                
-                <!-- Datacenter -->
-                <div class="service-card bg-white dark:bg-gray-800 rounded-xl p-8 shadow-md transition-all duration-300">
-                    <div class="w-14 h-14 gradient-bg rounded-lg flex items-center justify-center mb-6">
-                        <i class="fas fa-server text-white text-2xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-semibold mb-3">Datacenter Design & Deployment</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mb-4">
-                        End-to-end datacenter solutions from planning to implementation with focus on efficiency and scalability.
-                    </p>
-                    <ul class="space-y-2 text-gray-600 dark:text-gray-300">
-                        <li class="flex items-center">
-                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                            Tier III/Tier IV certified designs
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                            Power and cooling optimization
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                            Compliance-ready infrastructure
-                        </li>
-                    </ul>
-                </div>
-                
-                <!-- VDI -->
-                <div class="service-card bg-white dark:bg-gray-800 rounded-xl p-8 shadow-md transition-all duration-300">
-                    <div class="w-14 h-14 gradient-bg rounded-lg flex items-center justify-center mb-6">
-                        <i class="fas fa-desktop text-white text-2xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-semibold mb-3">Virtual Desktop Infrastructure (VDI)</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mb-4">
-                        Secure, scalable virtual workspaces that enable remote productivity without compromising performance.
-                    </p>
-                    <ul class="space-y-2 text-gray-600 dark:text-gray-300">
-                        <li class="flex items-center">
-                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                            Citrix & VMware Horizon solutions
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                            GPU-accelerated virtual workstations
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                            Zero-trust security integration
-                        </li>
-                    </ul>
-                </div>
-                
-                <!-- HCI -->
-                <div class="service-card bg-white dark:bg-gray-800 rounded-xl p-8 shadow-md transition-all duration-300">
-                    <div class="w-14 h-14 gradient-bg rounded-lg flex items-center justify-center mb-6">
-                        <i class="fas fa-boxes text-white text-2xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-semibold mb-3">Hyper-Converged Infrastructure</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mb-4">
-                        Simplified infrastructure that combines compute, storage, and networking into modular, software-defined units.
-                    </p>
-                    <ul class="space-y-2 text-gray-600 dark:text-gray-300">
-                        <li class="flex items-center">
-                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                            Nutanix & VMware vSAN expertise
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                            Rapid deployment and scaling
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                            Automated resource management
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Why Choose Us -->
-        <section class="mb-20">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold mb-4">Why Choose Our IT Infrastructure Services</h2>
-                <p class="max-w-2xl mx-auto text-gray-600 dark:text-gray-300">
-                    We combine deep technical expertise with business acumen to deliver infrastructure that drives growth.
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-200" style="--tw-primary: #003b5a; --tw-secondary: #00b5d8;">
+    <button id="theme-toggle" class="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full shadow-lg bg-white dark:bg-gray-800 flex items-center justify-center text-yellow-500 dark:text-yellow-400 hover:scale-110 transition-transform">
+        <i class="fas fa-sun text-xl" id="theme-icon"></i>
+    </button>
+
+    <header class="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">IT Infrastructure Services</h1>
+        <p class="text-gray-600 dark:text-gray-400 mb-2">Building robust and scalable foundations for your business</p>
+        <p class="text-sm text-gray-500 dark:text-gray-500 italic">Written by Babar Shahzad</p>
+    </header>
+
+    <main class="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto pb-16">
+        <section class="mb-16">
+            <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md transition-all duration-300 hover:shadow-lg">
+                <p class="text-lg leading-relaxed">
+                    A strong IT infrastructure is the backbone of any successful modern enterprise. We provide comprehensive infrastructure services, from design and implementation to management and optimization, ensuring your systems are reliable, secure, and scalable to meet future demands.
                 </p>
             </div>
+        </section>
+
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold mb-8 text-center">Our Infrastructure Expertise</h2>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm">
-                    <div class="text-primary-light dark:text-primary-dark text-4xl mb-4">
-                        <i class="fas fa-shield-alt"></i>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md transition-all duration-300 hover:shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-primary/10 dark:bg-primary/30 flex items-center justify-center mr-4">
+                            <i class="fas fa-cloud text-primary dark:text-secondary text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Cloud Infrastructure</h3>
                     </div>
-                    <h3 class="text-xl font-semibold mb-2">Enterprise-Grade Security</h3>
-                    <p class="text-gray-600 dark:text-gray-300">
-                        Built-in security at every layer with continuous monitoring and threat detection.
+                    <p class="text-gray-600 dark:text-gray-400">
+                        Design, deploy, and manage scalable cloud environments across AWS, Azure, and Google Cloud.
                     </p>
+                    <ul class="mt-4 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Cloud migration & optimization</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Hybrid cloud solutions</span>
+                        </li>
+                    </ul>
                 </div>
                 
-                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm">
-                    <div class="text-primary-light dark:text-primary-dark text-4xl mb-4">
-                        <i class="fas fa-chart-line"></i>
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md transition-all duration-300 hover:shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-primary/10 dark:bg-primary/30 flex items-center justify-center mr-4">
+                            <i class="fas fa-network-wired text-primary dark:text-secondary text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Network Design & Management</h3>
                     </div>
-                    <h3 class="text-xl font-semibold mb-2">Proven Performance</h3>
-                    <p class="text-gray-600 dark:text-gray-300">
-                        Optimized architectures that deliver 99.99% uptime and sub-millisecond latency.
+                    <p class="text-gray-600 dark:text-gray-400">
+                        Robust and secure network architectures for seamless data flow and connectivity.
                     </p>
+                    <ul class="mt-4 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>LAN/WAN optimization</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>SD-WAN implementation</span>
+                        </li>
+                    </ul>
                 </div>
                 
-                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm">
-                    <div class="text-primary-light dark:text-primary-dark text-4xl mb-4">
-                        <i class="fas fa-hand-holding-usd"></i>
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md transition-all duration-300 hover:shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-primary/10 dark:bg-primary/30 flex items-center justify-center mr-4">
+                            <i class="fas fa-hdd text-primary dark:text-secondary text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Server & Storage Solutions</h3>
                     </div>
-                    <h3 class="text-xl font-semibold mb-2">Cost Efficiency</h3>
-                    <p class="text-gray-600 dark:text-gray-300">
-                        Right-sized solutions that reduce TCO by 30-50% compared to traditional infrastructure.
+                    <p class="text-gray-600 dark:text-gray-400">
+                        High-performance and reliable server and storage solutions for your critical data.
                     </p>
+                    <ul class="mt-4 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Virtualization (VMware, Hyper-V)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Data backup & recovery</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md transition-all duration-300 hover:shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-primary/10 dark:bg-primary/30 flex items-center justify-center mr-4">
+                            <i class="fas fa-building text-primary dark:text-secondary text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Data Center Solutions</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400">
+                        Efficient and secure data center design, co-location, and management.
+                    </p>
+                    <ul class="mt-4 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Modular data centers</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Power & cooling optimization</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md transition-all duration-300 hover:shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-primary/10 dark:bg-primary/30 flex items-center justify-center mr-4">
+                            <i class="fas fa-headset text-primary dark:text-secondary text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">IT Support & Maintenance</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400">
+                        Proactive monitoring, troubleshooting, and helpdesk support to ensure uptime.
+                    </p>
+                    <ul class="mt-4 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>24/7 monitoring</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>On-site & remote support</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md transition-all duration-300 hover:shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-primary/10 dark:bg-primary/30 flex items-center justify-center mr-4">
+                            <i class="fas fa-briefcase-medical text-primary dark:text-secondary text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Disaster Recovery & Business Continuity</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400">
+                        Ensure your business can withstand any disruption with robust DR/BC plans.
+                    </p>
+                    <ul class="mt-4 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>DRaaS (Disaster Recovery as a Service)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>BCP development & testing</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </section>
         
-        <!-- Results Section -->
-        <section class="gradient-bg text-white rounded-2xl p-8 md:p-12 mb-16">
-            <div class="max-w-4xl mx-auto">
-                <h2 class="text-3xl font-bold mb-6">Real-World Impact</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+        <section class="mb-16">
+            <div class="impact-card rounded-2xl p-8 text-white">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
                     <div>
-                        <div class="text-4xl font-bold mb-2">4.9x</div>
-                        <p>Faster application performance</p>
+                        <p class="text-4xl font-bold">99.9%</p>
+                        <p class="text-sm opacity-90">Uptime Guarantee</p>
                     </div>
                     <div>
-                        <div class="text-4xl font-bold mb-2">42%</div>
-                        <p>Reduction in infrastructure costs</p>
+                        <p class="text-4xl font-bold">250+</p>
+                        <p class="text-sm opacity-90">Infrastructure Projects</p>
                     </div>
                     <div>
-                        <div class="text-4xl font-bold mb-2">100%</div>
-                        <p>Compliance with industry standards</p>
+                        <p class="text-4xl font-bold">100PB+</p>
+                        <p class="text-sm opacity-90">Data Managed</p>
                     </div>
-                </div>
-                <div class="mt-10 bg-white bg-opacity-20 rounded-lg p-6">
-                    <blockquote class="italic">
-                        "Partnering with Your Company transformed our IT infrastructure from a cost center to a strategic asset. Their team delivered a hybrid cloud solution that improved our operational efficiency by 60% while reducing downtime to near zero."
-                    </blockquote>
-                    <div class="mt-4 font-semibold">
-                        — Sarah Johnson, CIO at TechForward Inc.
+                    <div>
+                        <p class="text-4xl font-bold">4.8/5</p>
+                        <p class="text-sm opacity-90">Client Satisfaction</p>
                     </div>
                 </div>
             </div>
         </section>
         
-        <!-- CTA Section -->
-        <section class="text-center">
-            <a href="index.html#services" class="inline-block bg-primary-light dark:bg-primary-dark hover:bg-opacity-90 text-white font-semibold py-3 px-8 rounded-lg transition-all mb-6">
-                Back to All Services
+        <section class="flex flex-col items-center justify-center text-center">
+            <a href="index.html#services" class="px-6 py-3 bg-primary text-white rounded-lg font-medium hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary dark:focus:ring-offset-gray-900 transition-colors mb-8">
+                <i class="fas fa-arrow-left mr-2"></i>
+                Back to Services
             </a>
-            <div class="flex items-center justify-center space-x-2 text-gray-600 dark:text-gray-300">
+            
+            <button class="flex items-center space-x-1 text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-secondary transition-colors">
+                <i class="far fa-heart text-xl heart-icon"></i>
                 <span class="font-medium">3.8K Likes</span>
-                <button class="text-red-500 hover:text-red-600 transition-colors">
-                    <i class="fas fa-heart"></i>
-                </button>
-            </div>
-            <div class="mt-8 text-sm text-gray-500">
-                Written by Babar Shahzad
-            </div>
+            </button>
         </section>
     </main>
-    
-    <!-- Footer would go here (same as index.html) -->
-    
-    <!-- Theme Toggle Button -->
-    <button id="theme-toggle" class="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-white dark:bg-gray-800 flex items-center justify-center theme-toggle transition-all">
-        <i id="theme-icon" class="fas fa-moon text-gray-700 dark:text-yellow-300"></i>
-    </button>
-    
+
     <script>
         // Theme toggle functionality
         const themeToggle = document.getElementById('theme-toggle');
@@ -283,12 +253,10 @@
         // Check for saved theme preference or use system preference
         if (localStorage.getItem('color-theme') === 'dark' || (!localStorage.getItem('color-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark');
-            themeIcon.classList.remove('fa-moon');
-            themeIcon.classList.add('fa-sun');
+            themeIcon.classList.replace('fa-sun', 'fa-moon');
         } else {
             document.documentElement.classList.remove('dark');
-            themeIcon.classList.remove('fa-sun');
-            themeIcon.classList.add('fa-moon');
+            themeIcon.classList.replace('fa-moon', 'fa-sun');
         }
         
         // Toggle theme on button click
@@ -308,24 +276,27 @@
         });
         
         // Like button functionality
-        const likeButton = document.querySelector('.fa-heart');
+        const likeButton = document.querySelector('.heart-icon'); // Changed selector to target the icon directly
         let likeCount = 3800;
         let liked = false;
         
         likeButton.addEventListener('click', function() {
+            const likeCountElement = this.nextElementSibling; // Get the span element
+            
             if (!liked) {
                 likeCount++;
                 liked = true;
-                this.classList.add('fas');
-                this.classList.remove('far');
-                document.querySelector('.font-medium').textContent = formatLikeCount(likeCount);
+                this.classList.remove('far'); // Change to solid heart
+                this.classList.add('fas', 'text-red-500'); // Add red color for liked state
             } else {
                 likeCount--;
                 liked = false;
-                this.classList.add('far');
-                this.classList.remove('fas');
-                document.querySelector('.font-medium').textContent = formatLikeCount(likeCount);
+                this.classList.remove('fas', 'text-red-500');
+                this.classList.add('far'); // Change back to outline heart
             }
+            
+            // Update the text content of the span
+            likeCountElement.textContent = formatLikeCount(likeCount) + ' Likes';
         });
         
         function formatLikeCount(count) {
