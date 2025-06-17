@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service | SecurifyTech</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="https://github.com/Securifytechllc/securifytechllc/blob/main/securifylogo.png?raw=true">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#003b5a', /* Darker blue */
+                        secondary: '#00b5d8', /* Lighter blue */
+                        dark: '#0f172a',
+                        light: '#f8fafc',
+                        accent: '#ff5e00',
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 1s ease-in-out',
+                        'slide-up': 'slideUp 0.5s ease-out',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .gradient-text {
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            background-image: linear-gradient(90deg, var(--tw-primary), var(--tw-secondary)); /* Use CSS variables for gradient */
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, var(--tw-primary), var(--tw-secondary)); /* Use CSS variables for gradient */
+        }
+
+        .dark-gradient-bg {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+        }
+
+        .nav-link::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: var(--tw-primary); /* Use CSS variable */
+            transition: width .3s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .dark .nav-link:hover::after {
+            background: var(--tw-secondary); /* Use CSS variable */
+        }
+    </style>
+</head>
+<body class="bg-light dark:bg-dark text-gray-800 dark:text-gray-200 transition-colors duration-300"
+      style="--tw-primary: #003b5a; --tw-secondary: #00b5d8;">
+    <nav class="fixed w-full z-50 bg-white/80 dark:bg-dark/80 backdrop-blur-md shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center">
+                        <img src="https://github.com/Securifytechllc/securifytechllc/blob/main/securifylogo.png?raw=true"
+     alt="SecurifyTech Logo"
+     class="w-10 h-10 object-contain mr-2 rounded-full" />
+                        <span class="text-xl font-bold text-primary dark:text-secondary">SecurifyTech</span>
+                    </a>
+                </div>
+
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html#home" class="nav-link text-sm font-medium">Home</a>
+                    <a href="index.html#about" class="nav-link text-sm font-medium">About</a>
+                    <a href="index.html#services" class="nav-link text-sm font-medium">Services</a>
+                    <a href="index.html#rd" class="nav-link text-sm font-medium">R&D</a>
+                    <a href="index.html#csr" class="nav-link text-sm font-medium">CSR</a>
+                    <a href="index.html#contact" class="nav-link text-sm font-medium">Contact</a>
+                    <button id="theme-toggle" class="p-2 rounded-full focus:outline-none">
+                        <i class="fas fa-moon text-gray-600 dark:text-yellow-300 hidden dark:block"></i>
+                        <i class="fas fa-sun text-yellow-500 dark:hidden"></i>
+                    </button>
+                </div>
+
+                <div class="md:hidden flex items-center">
+                    <button id="theme-toggle-mobile" class="p-2 mr-2 rounded-full focus:outline-none">
+                        <i class="fas fa-moon text-gray-600 dark:text-yellow-300 hidden dark:block"></i>
+                        <i class="fas fa-sun text-yellow-500 dark:hidden"></i>
+                    </button>
+                    <button id="menu-btn" class="hamburger focus:outline-none">
+                        <span class="hamburger-top"></span>
+                        <span class="hamburger-middle"></span>
+                        <span class="hamburger-bottom"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="menu" class="hidden md:hidden bg-white dark:bg-gray-800 shadow-lg rounded-lg mt-2 py-2 absolute w-full left-0 right-0">
+            <div class="px-5 pt-2 pb-3 space-y-1">
+                <a href="index.html#home" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-700">Home</a>
+                <a href="index.html#about" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-700">About</a>
+                <a href="index.html#services" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-700">Services</a>
+                <a href="index.html#rd" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-700">R&D</a>
+                <a href="index.html#csr" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-700">CSR</a>
+                <a href="index.html#contact" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-700">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="pt-24 pb-16 md:pt-32 md:pb-24 bg-white dark:bg-gray-900">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="text-4xl md:text-5xl font-bold text-center mb-12">Terms of <span class="gradient-text">Service</span></h1>
+
+            <div class="prose dark:prose-invert max-w-none">
+                <h2 class="text-2xl md:text-3xl font-bold mb-4 mt-8">1. Introduction</h2>
+                <p class="text-lg text-gray-600 dark:text-gray-300 mb-6">
+                    Welcome to Securifytech. By accessing or using our website, you agree to comply with and be bound by these Terms of Service. Please read them carefully.
+                </p>
+
+                <h2 class="text-2xl md:text-3xl font-bold mb-4 mt-8">2. Acceptance of Terms</h2>
+                <p class="text-lg text-gray-600 dark:text-gray-300 mb-6">
+                    By using our services, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service and our Privacy Policy.
+                </p>
+
+                <h2 class="text-2xl md:text-3xl font-bold mb-4 mt-8">3. User Responsibilities</h2>
+                <p class="text-lg text-gray-600 dark:text-gray-300 mb-6">
+                    You agree to use our website only for lawful purposes. You must not misuse our services, attempt to gain unauthorized access, or interfere with the operation of the website.
+                </p>
+
+                <h2 class="text-2xl md:text-3xl font-bold mb-4 mt-8">4. Account Terms</h2>
+                <p class="text-lg text-gray-600 dark:text-gray-300 mb-6">
+                    If you create an account with us, you are responsible for maintaining the security of your account and for all activities that occur under your account.
+                </p>
+
+                <h2 class="text-2xl md:text-3xl font-bold mb-4 mt-8">5. Intellectual Property</h2>
+                <p class="text-lg text-gray-600 dark:text-gray-300 mb-6">
+                    All content on this website, including text, graphics, logos, and software, is the property of Securifytech and is protected by copyright and other laws.
+                </p>
+
+                <h2 class="text-2xl md:text-3xl font-bold mb-4 mt-8">6. Termination</h2>
+                <p class="text-lg text-gray-600 dark:text-gray-300 mb-6">
+                    We reserve the right to suspend or terminate your access to our services at our sole discretion, without notice, if you violate these Terms.
+                </p>
+
+                <h2 class="text-2xl md:text-3xl font-bold mb-4 mt-8">7. Disclaimers and Limitation of Liability</h2>
+                <p class="text-lg text-gray-600 dark:text-gray-300 mb-6">
+                    Our services are provided 'as is' without warranties of any kind. Securifytech is not liable for any damages or losses resulting from your use of our website.
+                </p>
+
+                <h2 class="text-2xl md:text-3xl font-bold mb-4 mt-8">8. Changes to Terms</h2>
+                <p class="text-lg text-gray-600 dark:text-gray-300 mb-6">
+                    We may update these Terms of Service at any time. All changes will be effective immediately upon posting on this page.
+                </p>
+
+                <h2 class="text-2xl md:text-3xl font-bold mb-4 mt-8">9. Governing Law</h2>
+                <p class="text-lg text-gray-600 dark:text-gray-300 mb-6">
+                    These Terms shall be governed by and construed in accordance with the laws of Pakistan, without regard to its conflict of law principles.
+                </p>
+
+                <h2 class="text-2xl md:text-3xl font-bold mb-4 mt-8">10. Contact Us</h2>
+                <p class="text-lg text-gray-600 dark:text-gray-300 mb-6">
+                    If you have any questions about these Terms, please contact us at:
+                </p>
+                <p class="text-lg text-gray-600 dark:text-gray-300 mb-6">
+                    📧 <a href="mailto:securifytechllc@gmail.com" class="text-primary dark:text-secondary hover:underline">securifytechllc@gmail.com</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-gray-300 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <a href="index.html" class="flex items-center mb-6">
+    <img src="https://github.com/Securifytechllc/securifytechllc/blob/main/securifylogo.png?raw=true"
+         alt="SecurifyTech Logo"
+         class="w-10 h-10 object-contain mr-2 rounded-full" />
+    <span class="text-xl font-bold text-white">SecurifyTech</span>
+</a>
+
+                    <p class="mb-4">
+                        Your Vision, Our Tech - Delivering innovative, high-quality, and secure digital transformation solutions.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://x.com/Securifytech" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/securifytech" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://www.instagram.com/securifytech/" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html#home" class="hover:text-white transition duration-300">Home</a></li>
+                        <li><a href="index.html#about" class="hover:text-white transition duration-300">About Us</a></li>
+                        <li><a href="index.html#services" class="hover:text-white transition duration-300">Services</a></li>
+                        <li><a href="index.html#rd" class="hover:text-white transition duration-300">Research & Development</a></li>
+                        <li><a href="index.html#csr" class="hover:text-white transition duration-300">CSR</a></li>
+                        <li><a href="index.html#contact" class="hover:text-white transition duration-300">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="infrastructure.html" class="hover:text-white transition duration-300">IT Infrastructure</a></li>
+                        <li><a href="cybersecurity.html" class="hover:text-white transition duration-300">Cybersecurity</a></li>
+                        <li><a href="automation.html" class="hover:text-white transition duration-300">Automation</a></li>
+                        <li><a href="training.html" class="hover:text-white transition duration-300">Training & Certifications</a></li>
+                        <li><a href="consulting.html" class="hover:text-white transition duration-300">Consulting</a></li>
+                        <li><a href="managing.html" class="hover:text-white transition duration-300">Managed Services</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">Newsletter</h3>
+                    <p class="mb-4">
+                        Subscribe to our newsletter for the latest updates and insights.
+                    </p>
+                    <form class="flex" action="https://formsubmit.co/securifytechllc@gmail.com" method="POST">
+
+                        <input type="email" placeholder="Your email" class="px-4 py-2 w-full rounded-l-lg focus:outline-none text-gray-900">
+                        <button type="submit" class="gradient-bg text-white px-4 py-2 rounded-r-lg hover:opacity-90 transition duration-300">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                    <div class="mt-6">
+                        <h4 class="text-white text-lg font-semibold mb-2">Certifications</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <img src="https://www.arenasolutions.com/wp-content/uploads/what-is-iso-9001-compliance.png" alt="ISO 9001" class="h-8">
+                            <img src="https://netstream.ch/wp-content/uploads/2023/03/ISO_blue-dark-1024x1024.png" alt="ISO 27001" class="h-8">
+                            <img src="https://5.imimg.com/data5/SELLER/Default/2023/1/DM/OZ/CO/25087216/iso-45001-certification-services.png" alt="ISO 14001" class="h-8">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">
+                    © 2023 SecurifyTech. All rights reserved.
+                </p>
+                <div class="flex space-x-6">
+                    <a href="privacy-policy.html" class="text-gray-400 hover:text-white text-sm transition duration-300">Privacy Policy</a>
+                    <a href="terms-of-service.html" class="text-gray-400 hover:text-white text-sm transition duration-300">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition duration-300">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const menu = document.getElementById('menu');
+
+        menuBtn.addEventListener('click', () => {
+            menuBtn.classList.toggle('open');
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('flex');
+        });
+
+        // Theme toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+
+        const toggleTheme = () => {
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+        };
+
+        themeToggle.addEventListener('click', toggleTheme);
+        themeToggleMobile.addEventListener('click', toggleTheme);
+
+        // Smooth scrolling for anchor links (adjusted for index.html links)
+        document.querySelectorAll('a[href^="index.html#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href').split('#')[1];
+                const targetElement = document.getElementById(targetId);
+                
+                if (targetElement) {
+                    // Navigate to index.html and then scroll
+                    window.location.href = `index.html#${targetId}`;
+                }
+            });
+        });
+
+        // Ensure direct # links on this page also scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            if (!anchor.getAttribute('href').startsWith('index.html#')) {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            }
+        });
+
+    </script>
+</body>
+</html>
