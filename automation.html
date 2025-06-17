@@ -19,41 +19,48 @@
                         sans: ['Inter', 'sans-serif'],
                     },
                     colors: {
-                        primary: {
-                            50: '#f0f9ff',
-                            100: '#e0f2fe',
-                            200: '#bae6fd',
-                            300: '#7dd3fc',
-                            400: '#38bdf8',
-                            500: '#0ea5e9',
-                            600: '#0284c7',
-                            700: '#0369a1',
-                            800: '#075985',
-                            900: '#0c4a6e',
-                        }
+                        primary: '#003b5a', /* Darker blue */
+                        secondary: '#00b5d8', /* Lighter blue */
+                        dark: '#0f172a', /* Existing dark color */
+                        light: '#f8fafc', /* Existing light color */
+                        accent: '#ff5e00', /* Existing accent color */
                     }
                 }
             }
         }
     </script>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+
         .prose :where(code):not(:where([class~="not-prose"] *))::before,
         .prose :where(code):not(:where([class~="not-prose"] *))::after {
             content: "";
         }
+
+        .gradient-text {
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            background-image: linear-gradient(90deg, var(--tw-primary), var(--tw-secondary));
+        }
+
         .impact-card {
-            background: linear-gradient(135deg, rgba(14,165,233,0.1) 0%, rgba(2,132,199,0.2) 100%);
+            background: linear-gradient(135deg, var(--tw-primary), var(--tw-secondary)); /* Modern gradient using primary and secondary */
         }
         .dark .impact-card {
-            background: linear-gradient(135deg, rgba(14,165,233,0.2) 0%, rgba(2,132,199,0.3) 100%);
+            background: linear-gradient(135deg, var(--tw-primary), var(--tw-secondary)); /* Same gradient for dark mode, or a subtle variation */
         }
     </style>
 </head>
-<body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 font-sans transition-colors duration-300">
+<body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 font-sans transition-colors duration-300" style="--tw-primary: #003b5a; --tw-secondary: #00b5d8;">
     <div class="container mx-auto px-4 py-8 max-w-4xl">
-        <!-- Header -->
         <header class="mb-12">
-            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">Automation Services</h1>
+            <h1 class="text-4xl md:text-5xl font-bold gradient-text mb-4">Automation Services</h1>
             <p class="text-gray-600 dark:text-gray-400 mb-2">Written by Babar Shahzad</p>
             <p class="text-lg text-gray-700 dark:text-gray-300">
                 Streamline your operations, reduce errors, and boost productivity with our cutting-edge automation solutions. 
@@ -61,13 +68,11 @@
             </p>
         </header>
 
-        <!-- Main Content -->
         <main class="prose dark:prose-invert prose-lg max-w-none">
-            <!-- RPA Section -->
             <section class="mb-16">
                 <div class="flex items-center gap-4 mb-6">
-                    <div class="bg-primary-100 dark:bg-primary-900/30 p-3 rounded-lg">
-                        <i class="fas fa-robot text-primary-600 dark:text-primary-400 text-2xl"></i>
+                    <div class="bg-primary/10 dark:bg-primary/30 p-3 rounded-lg">
+                        <i class="fas fa-robot text-primary dark:text-secondary text-2xl"></i>
                     </div>
                     <h2 class="text-3xl font-semibold text-gray-900 dark:text-white">Robotic Process Automation (RPA)</h2>
                 </div>
@@ -77,7 +82,7 @@
                 </p>
                 <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
-                        <h3 class="font-medium text-primary-600 dark:text-primary-400 mb-2">Key Benefits</h3>
+                        <h3 class="font-medium text-primary dark:text-secondary mb-2">Key Benefits</h3>
                         <ul class="space-y-2">
                             <li class="flex items-start gap-2">
                                 <i class="fas fa-check-circle text-green-500 mt-1"></i>
@@ -94,7 +99,7 @@
                         </ul>
                     </div>
                     <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
-                        <h3 class="font-medium text-primary-600 dark:text-primary-400 mb-2">Common Use Cases</h3>
+                        <h3 class="font-medium text-primary dark:text-secondary mb-2">Common Use Cases</h3>
                         <ul class="space-y-2">
                             <li class="flex items-start gap-2">
                                 <i class="fas fa-file-invoice text-blue-500 mt-1"></i>
@@ -113,11 +118,10 @@
                 </div>
             </section>
 
-            <!-- ERP Integration Section -->
             <section class="mb-16">
                 <div class="flex items-center gap-4 mb-6">
-                    <div class="bg-primary-100 dark:bg-primary-900/30 p-3 rounded-lg">
-                        <i class="fas fa-network-wired text-primary-600 dark:text-primary-400 text-2xl"></i>
+                    <div class="bg-primary/10 dark:bg-primary/30 p-3 rounded-lg">
+                        <i class="fas fa-network-wired text-primary dark:text-secondary text-2xl"></i>
                     </div>
                     <h2 class="text-3xl font-semibold text-gray-900 dark:text-white">ERP System Integration</h2>
                 </div>
@@ -128,15 +132,15 @@
                 <div class="mt-6">
                     <h3 class="text-xl font-medium mb-3">Our Integration Approach</h3>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <div class="border-l-4 border-primary-500 pl-4 py-2">
+                        <div class="border-l-4 border-primary pl-4 py-2">
                             <h4 class="font-medium">Assessment</h4>
                             <p class="text-sm text-gray-600 dark:text-gray-400">Analyze your current systems and workflows</p>
                         </div>
-                        <div class="border-l-4 border-primary-500 pl-4 py-2">
+                        <div class="border-l-4 border-primary pl-4 py-2">
                             <h4 class="font-medium">Custom Solution</h4>
                             <p class="text-sm text-gray-600 dark:text-gray-400">Design integration tailored to your needs</p>
                         </div>
-                        <div class="border-l-4 border-primary-500 pl-4 py-2">
+                        <div class="border-l-4 border-primary pl-4 py-2">
                             <h4 class="font-medium">Implementation</h4>
                             <p class="text-sm text-gray-600 dark:text-gray-400">Deploy with minimal disruption</p>
                         </div>
@@ -144,11 +148,10 @@
                 </div>
             </section>
 
-            <!-- AI Workflows Section -->
             <section class="mb-16">
                 <div class="flex items-center gap-4 mb-6">
-                    <div class="bg-primary-100 dark:bg-primary-900/30 p-3 rounded-lg">
-                        <i class="fas fa-brain text-primary-600 dark:text-primary-400 text-2xl"></i>
+                    <div class="bg-primary/10 dark:bg-primary/30 p-3 rounded-lg">
+                        <i class="fas fa-brain text-primary dark:text-secondary text-2xl"></i>
                     </div>
                     <h2 class="text-3xl font-semibold text-gray-900 dark:text-white">AI-Driven Workflows</h2>
                 </div>
@@ -162,28 +165,28 @@
                             <h3 class="font-medium text-lg mb-3">Cognitive Automation Features</h3>
                             <ul class="space-y-3">
                                 <li class="flex items-start gap-3">
-                                    <div class="bg-primary-500/10 text-primary-600 dark:text-primary-400 p-1 rounded-full">
+                                    <div class="bg-primary/10 text-primary dark:text-secondary p-1 rounded-full">
                                         <i class="fas fa-chart-line text-sm"></i>
                                     </div>
                                     <span>Predictive analytics for decision support</span>
                                 </li>
                                 <li class="flex items-start gap-3">
-                                    <div class="bg-primary-500/10 text-primary-600 dark:text-primary-400 p-1 rounded-full">
+                                    <div class="bg-primary/10 text-primary dark:text-secondary p-1 rounded-full">
                                         <i class="fas fa-comments text-sm"></i>
                                     </div>
                                     <span>Natural language processing for document understanding</span>
                                 </li>
                                 <li class="flex items-start gap-3">
-                                    <div class="bg-primary-500/10 text-primary-600 dark:text-primary-400 p-1 rounded-full">
+                                    <div class="bg-primary/10 text-primary dark:text-secondary p-1 rounded-full">
                                         <i class="fas fa-eye text-sm"></i>
                                     </div>
                                     <span>Computer vision for image and video analysis</span>
                                 </li>
                             </ul>
                         </div>
-                        <div class="bg-primary-50 dark:bg-primary-900/20 p-6 flex items-center justify-center">
+                        <div class="bg-primary/5 dark:bg-primary/20 p-6 flex items-center justify-center">
                             <div class="text-center">
-                                <div class="text-5xl font-bold text-primary-600 dark:text-primary-400 mb-2">40%</div>
+                                <div class="text-5xl font-bold text-primary dark:text-secondary mb-2">40%</div>
                                 <p class="text-gray-700 dark:text-gray-300">Average efficiency gain with AI augmentation</p>
                             </div>
                         </div>
@@ -191,11 +194,10 @@
                 </div>
             </section>
 
-            <!-- Workflow Optimization Section -->
             <section class="mb-16">
                 <div class="flex items-center gap-4 mb-6">
-                    <div class="bg-primary-100 dark:bg-primary-900/30 p-3 rounded-lg">
-                        <i class="fas fa-project-diagram text-primary-600 dark:text-primary-400 text-2xl"></i>
+                    <div class="bg-primary/10 dark:bg-primary/30 p-3 rounded-lg">
+                        <i class="fas fa-project-diagram text-primary dark:text-secondary text-2xl"></i>
                     </div>
                     <h2 class="text-3xl font-semibold text-gray-900 dark:text-white">Workflow Optimization</h2>
                 </div>
@@ -206,36 +208,31 @@
                 <div class="mt-8">
                     <h3 class="text-xl font-medium mb-4">Our Optimization Methodology</h3>
                     <div class="relative">
-                        <!-- Timeline -->
-                        <div class="absolute left-4 h-full w-0.5 bg-primary-200 dark:bg-primary-900/50"></div>
+                        <div class="absolute left-4 h-full w-0.5 bg-primary/20 dark:bg-primary/50"></div>
                         <div class="space-y-8">
-                            <!-- Step 1 -->
                             <div class="relative pl-12">
-                                <div class="absolute left-0 top-0 flex items-center justify-center w-8 h-8 rounded-full bg-primary-500 text-white">
+                                <div class="absolute left-0 top-0 flex items-center justify-center w-8 h-8 rounded-full bg-primary text-white">
                                     <span class="font-bold">1</span>
                                 </div>
                                 <h4 class="font-medium text-lg">Process Mapping</h4>
                                 <p class="text-gray-600 dark:text-gray-400">Document current workflows in detail</p>
                             </div>
-                            <!-- Step 2 -->
                             <div class="relative pl-12">
-                                <div class="absolute left-0 top-0 flex items-center justify-center w-8 h-8 rounded-full bg-primary-500 text-white">
+                                <div class="absolute left-0 top-0 flex items-center justify-center w-8 h-8 rounded-full bg-primary text-white">
                                     <span class="font-bold">2</span>
                                 </div>
                                 <h4 class="font-medium text-lg">Bottleneck Analysis</h4>
                                 <p class="text-gray-600 dark:text-gray-400">Identify inefficiencies and pain points</p>
                             </div>
-                            <!-- Step 3 -->
                             <div class="relative pl-12">
-                                <div class="absolute left-0 top-0 flex items-center justify-center w-8 h-8 rounded-full bg-primary-500 text-white">
+                                <div class="absolute left-0 top-0 flex items-center justify-center w-8 h-8 rounded-full bg-primary text-white">
                                     <span class="font-bold">3</span>
                                 </div>
                                 <h4 class="font-medium text-lg">Redesign Workshop</h4>
                                 <p class="text-gray-600 dark:text-gray-400">Collaborative process improvement</p>
                             </div>
-                            <!-- Step 4 -->
                             <div class="relative pl-12">
-                                <div class="absolute left-0 top-0 flex items-center justify-center w-8 h-8 rounded-full bg-primary-500 text-white">
+                                <div class="absolute left-0 top-0 flex items-center justify-center w-8 h-8 rounded-full bg-primary text-white">
                                     <span class="font-bold">4</span>
                                 </div>
                                 <h4 class="font-medium text-lg">Implementation</h4>
@@ -246,12 +243,11 @@
                 </div>
             </section>
 
-            <!-- Why Choose Us Section -->
             <section class="mb-16">
                 <h2 class="text-3xl font-semibold text-gray-900 dark:text-white mb-8 text-center">Why Choose Our Automation Services</h2>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl">
-                        <div class="text-primary-600 dark:text-primary-400 text-4xl mb-4">
+                        <div class="text-primary dark:text-secondary text-4xl mb-4">
                             <i class="fas fa-medal"></i>
                         </div>
                         <h3 class="text-xl font-medium mb-2">Proven Expertise</h3>
@@ -260,7 +256,7 @@
                         </p>
                     </div>
                     <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl">
-                        <div class="text-primary-600 dark:text-primary-400 text-4xl mb-4">
+                        <div class="text-primary dark:text-secondary text-4xl mb-4">
                             <i class="fas fa-cogs"></i>
                         </div>
                         <h3 class="text-xl font-medium mb-2">End-to-End Service</h3>
@@ -269,7 +265,7 @@
                         </p>
                     </div>
                     <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl">
-                        <div class="text-primary-600 dark:text-primary-400 text-4xl mb-4">
+                        <div class="text-primary dark:text-secondary text-4xl mb-4">
                             <i class="fas fa-handshake"></i>
                         </div>
                         <h3 class="text-xl font-medium mb-2">Partnership Approach</h3>
@@ -280,21 +276,19 @@
                 </div>
             </section>
 
-            <!-- Impact Card -->
             <section class="mb-16">
                 <div class="impact-card rounded-2xl p-8 md:p-12 text-center">
-                    <div class="text-5xl font-bold text-primary-600 dark:text-primary-400 mb-4">87%</div>
-                    <h3 class="text-2xl font-medium mb-4">Of Clients Achieved ROI Within 6 Months</h3>
-                    <p class="text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">
+                    <div class="text-white text-5xl font-bold mb-4">87%</div>
+                    <h3 class="text-white text-2xl font-medium mb-4">Of Clients Achieved ROI Within 6 Months</h3>
+                    <p class="text-white max-w-2xl mx-auto">
                         Our automation solutions deliver rapid returns, with clients reporting an average 3.4x 
                         return on investment in the first year of implementation.
                     </p>
                 </div>
             </section>
 
-            <!-- CTA Section -->
             <section class="flex flex-col items-center justify-center text-center">
-                <a href="index.html#services" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 dark:focus:ring-offset-gray-900 transition-colors mb-8">
+                <a href="index.html#services" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-primary hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary dark:focus:ring-offset-gray-900 transition-colors mb-8">
                     <i class="fas fa-arrow-left mr-2"></i>
                     Back to Services
                 </a>
@@ -306,7 +300,6 @@
         </main>
     </div>
 
-    <!-- Dark Mode Toggle -->
     <button id="theme-toggle" type="button" class="fixed bottom-6 right-6 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-full p-3 focus:outline-none shadow-lg transition-colors">
         <svg id="theme-toggle-dark-icon" class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
             <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
