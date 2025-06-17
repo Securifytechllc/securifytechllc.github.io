@@ -13,14 +13,8 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: {
-                            light: '#3b82f6',
-                            dark: '#1e40af'
-                        },
-                        secondary: {
-                            light: '#10b981',
-                            dark: '#047857'
-                        }
+                        primary: '#003b5a', /* Darker blue */
+                        secondary: '#00b5d8' /* Lighter blue */
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
@@ -36,20 +30,24 @@
             font-family: 'Inter', sans-serif;
             transition: background-color 0.3s, color 0.3s;
         }
-        
+
         .gradient-text {
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
-            background-image: linear-gradient(to right, #3b82f6, #10b981);
+            background-image: linear-gradient(90deg, var(--tw-primary), var(--tw-secondary));
         }
         
         .dark .gradient-text {
-            background-image: linear-gradient(to right, #60a5fa, #34d399);
+            background-image: linear-gradient(90deg, var(--tw-primary), var(--tw-secondary));
+        }
+
+        .impact-card {
+            background: linear-gradient(135deg, var(--tw-primary), var(--tw-secondary));
         }
         
-        .card-hover {
-            transition: transform 0.3s, box-shadow 0.3s;
+        .dark .impact-card {
+            background: linear-gradient(135deg, var(--tw-primary), var(--tw-secondary));
         }
         
         .card-hover:hover {
@@ -60,311 +58,211 @@
         .dark .card-hover:hover {
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
         }
-        
-        .cert-badge {
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .cert-badge::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: 0.5s;
-        }
-        
-        .cert-badge:hover::before {
-            left: 100%;
-        }
-        
-        .dark .cert-badge {
-            background-color: #1e293b;
-        }
-        
-        .dark .cert-badge:hover {
-            background-color: #334155;
-        }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-200">
-    <!-- Theme Toggle Button -->
-    <button id="theme-toggle" class="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full shadow-lg flex items-center justify-center bg-white dark:bg-gray-800 text-gray-800 dark:text-yellow-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all">
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-200" style="--tw-primary: #003b5a; --tw-secondary: #00b5d8;">
+    <button id="theme-toggle" class="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full shadow-lg bg-white dark:bg-gray-800 flex items-center justify-center text-yellow-500 dark:text-yellow-400 hover:scale-110 transition-transform">
         <i class="fas fa-sun text-xl" id="theme-icon"></i>
     </button>
 
-    <!-- Header -->
-    <header class="container mx-auto px-4 py-12">
-        <div class="max-w-4xl mx-auto text-center">
+    <header class="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center">
             <h1 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">Training & Certifications</h1>
-            <p class="text-gray-600 dark:text-gray-400 mb-2">Empowering teams through knowledge and skills development</p>
-            <p class="text-sm text-gray-500 dark:text-gray-500">Written by Babar Shahzad</p>
+            <p class="text-gray-600 dark:text-gray-400 mb-2">Empowering your team with essential tech skills</p>
+            <p class="text-sm text-gray-500 dark:text-gray-500 italic">Written by Babar Shahzad</p>
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="container mx-auto px-4 pb-20 max-w-4xl">
-        <!-- Intro Section -->
+    <main class="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto pb-16">
         <section class="mb-16">
-            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 md:p-8 card-hover">
-                <h2 class="text-2xl font-semibold mb-4 text-primary-light dark:text-primary-dark">The Power of Training</h2>
-                <p class="mb-4 text-gray-700 dark:text-gray-300">
-                    In today's rapidly evolving technological landscape, continuous learning isn't just beneficial—it's essential. Our training programs are designed to bridge the gap between current capabilities and future requirements, transforming professionals into high-performing assets for their organizations.
-                </p>
-                <p class="text-gray-700 dark:text-gray-300">
-                    With a focus on practical, real-world applications, our training goes beyond theoretical knowledge to deliver measurable improvements in performance, productivity, and problem-solving capabilities across all levels of an organization.
+            <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md card-hover transition-all duration-300">
+                <p class="text-lg leading-relaxed">
+                    In the fast-paced world of technology, continuous learning is crucial. Our training and certification programs are designed to equip individuals and teams with the most in-demand skills, from fundamental IT concepts to advanced cybersecurity practices.
                 </p>
             </div>
         </section>
 
-        <!-- Training Programs -->
         <section class="mb-16">
-            <h2 class="text-3xl font-bold mb-8 text-center gradient-text">Our Training Programs</h2>
+            <h2 class="text-3xl font-bold mb-8 text-center">Our Training Programs</h2>
             
-            <div class="grid md:grid-cols-2 gap-6">
-                <!-- Leadership & Management -->
-                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 card-hover">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md card-hover transition-all duration-300">
                     <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center mr-4">
-                            <i class="fas fa-users text-blue-600 dark:text-blue-300 text-xl"></i>
+                        <div class="w-12 h-12 rounded-full bg-primary/10 dark:bg-primary/30 flex items-center justify-center mr-4">
+                            <i class="fas fa-desktop text-primary dark:text-secondary text-xl"></i>
                         </div>
-                        <h3 class="text-xl font-semibold text-primary-light dark:text-primary-dark">Leadership & Management</h3>
+                        <h3 class="text-xl font-semibold">IT Fundamentals & Support</h3>
                     </div>
-                    <p class="text-gray-700 dark:text-gray-300">
-                        Develop essential leadership skills to inspire teams, drive change, and achieve organizational goals. Our programs cover strategic thinking, emotional intelligence, conflict resolution, and effective communication for leaders at all levels.
+                    <p class="text-gray-600 dark:text-gray-400">
+                        Essential skills for aspiring IT professionals, covering hardware, software, networking, and troubleshooting.
                     </p>
                     <ul class="mt-4 space-y-2">
-                        <li class="flex items-center">
-                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                            <span>Executive leadership development</span>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>CompTIA A+ preparation</span>
                         </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                            <span>Team building and motivation</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                            <span>Performance management</span>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Help Desk & User Support</span>
                         </li>
                     </ul>
                 </div>
                 
-                <!-- Agile Transformation -->
-                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 card-hover">
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md card-hover transition-all duration-300">
                     <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center mr-4">
-                            <i class="fas fa-sync-alt text-green-600 dark:text-green-300 text-xl"></i>
+                        <div class="w-12 h-12 rounded-full bg-secondary/10 dark:bg-secondary/30 flex items-center justify-center mr-4">
+                            <i class="fas fa-shield-alt text-secondary dark:text-primary text-xl"></i>
                         </div>
-                        <h3 class="text-xl font-semibold text-primary-light dark:text-primary-dark">Agile Transformation</h3>
+                        <h3 class="text-xl font-semibold">Cybersecurity Essentials</h3>
                     </div>
-                    <p class="text-gray-700 dark:text-gray-300">
-                        Transition your organization to agile methodologies with our comprehensive training programs. We provide practical guidance on Scrum, Kanban, SAFe, and other frameworks to improve delivery speed and quality.
+                    <p class="text-gray-600 dark:text-gray-400">
+                        Learn to identify, protect against, and respond to cyber threats, preparing for roles in security operations.
                     </p>
                     <ul class="mt-4 space-y-2">
-                        <li class="flex items-center">
-                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                            <span>Agile mindset and principles</span>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>CompTIA Security+ readiness</span>
                         </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                            <span>Scrum Master and Product Owner training</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                            <span>Enterprise agile scaling</span>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Ethical Hacking basics</span>
                         </li>
                     </ul>
                 </div>
                 
-                <!-- Executive Coaching -->
-                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 card-hover">
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md card-hover transition-all duration-300">
                     <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 rounded-full bg-purple-100 dark:bg-purple-900 flex items-center justify-center mr-4">
-                            <i class="fas fa-user-tie text-purple-600 dark:text-purple-300 text-xl"></i>
+                        <div class="w-12 h-12 rounded-full bg-primary/10 dark:bg-primary/30 flex items-center justify-center mr-4">
+                            <i class="fas fa-cloud text-primary dark:text-secondary text-xl"></i>
                         </div>
-                        <h3 class="text-xl font-semibold text-primary-light dark:text-primary-dark">Executive Coaching</h3>
+                        <h3 class="text-xl font-semibold">Cloud Technologies</h3>
                     </div>
-                    <p class="text-gray-700 dark:text-gray-300">
-                        One-on-one coaching for C-suite executives and senior leaders to enhance decision-making, strategic vision, and leadership presence. Our personalized approach helps leaders navigate complex challenges and maximize their impact.
+                    <p class="text-gray-600 dark:text-gray-400">
+                        Master cloud platforms like AWS, Azure, and Google Cloud, focusing on architecture, deployment, and management.
                     </p>
                     <ul class="mt-4 space-y-2">
-                        <li class="flex items-center">
-                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                            <span>360-degree feedback analysis</span>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>AWS Certified Solutions Architect</span>
                         </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                            <span>Strategic leadership development</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                            <span>Boardroom communication</span>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Azure Administrator Associate</span>
                         </li>
                     </ul>
                 </div>
                 
-                <!-- Women in Tech Initiatives -->
-                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 card-hover">
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md card-hover transition-all duration-300">
                     <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 rounded-full bg-pink-100 dark:bg-pink-900 flex items-center justify-center mr-4">
-                            <i class="fas fa-female text-pink-600 dark:text-pink-300 text-xl"></i>
+                        <div class="w-12 h-12 rounded-full bg-secondary/10 dark:bg-secondary/30 flex items-center justify-center mr-4">
+                            <i class="fas fa-chart-line text-secondary dark:text-primary text-xl"></i>
                         </div>
-                        <h3 class="text-xl font-semibold text-primary-light dark:text-primary-dark">Women in Tech Initiatives</h3>
+                        <h3 class="text-xl font-semibold">Data Analytics & AI Basics</h3>
                     </div>
-                    <p class="text-gray-700 dark:text-gray-300">
-                        Specialized programs to support and empower women in technology fields. From technical skill development to leadership training, we help women overcome barriers and achieve their full potential in the tech industry.
+                    <p class="text-gray-600 dark:text-gray-400">
+                        Introduction to data analysis tools, machine learning concepts, and artificial intelligence applications.
                     </p>
                     <ul class="mt-4 space-y-2">
-                        <li class="flex items-center">
-                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                            <span>Technical upskilling programs</span>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Python for Data Science</span>
                         </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                            <span>Career advancement strategies</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                            <span>Mentorship and networking</span>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Machine Learning Foundations</span>
                         </li>
                     </ul>
                 </div>
             </div>
         </section>
-
-        <!-- Impact Card -->
+        
         <section class="mb-16">
-            <div class="bg-gradient-to-r from-blue-500 to-green-500 dark:from-blue-600 dark:to-green-600 rounded-xl shadow-lg p-8 text-white">
-                <div class="max-w-2xl mx-auto text-center">
-                    <h3 class="text-2xl font-bold mb-4">Our Training Impact</h3>
-                    <div class="text-4xl font-bold mb-2">3,000+</div>
-                    <p class="text-xl mb-6">professionals trained worldwide</p>
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                        <div>
-                            <div class="text-2xl font-bold">95%</div>
-                            <p class="text-sm">Satisfaction Rate</p>
-                        </div>
-                        <div>
-                            <div class="text-2xl font-bold">40+</div>
-                            <p class="text-sm">Countries</p>
-                        </div>
-                        <div>
-                            <div class="text-2xl font-bold">200+</div>
-                            <p class="text-sm">Companies</p>
-                        </div>
-                        <div>
-                            <div class="text-2xl font-bold">98%</div>
-                            <p class="text-sm">Completion Rate</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Certifications Section -->
-        <section class="mb-16">
-            <h2 class="text-3xl font-bold mb-8 text-center gradient-text">Globally Recognized Certifications</h2>
+            <h2 class="text-3xl font-bold mb-8 text-center">Supported Certifications</h2>
             
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                <!-- CompTIA -->
-                <div class="cert-badge bg-white dark:bg-gray-800 rounded-lg p-4 shadow-md flex items-center transition-colors">
-                    <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mr-4">
-                        <i class="fas fa-shield-alt text-blue-600 dark:text-blue-300"></i>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm flex flex-col items-center text-center hover:shadow-md transition-shadow">
+                    <div class="w-16 h-16 rounded-full bg-primary/10 dark:bg-primary/30 flex items-center justify-center mb-3">
+                        <i class="fas fa-certificate text-primary dark:text-secondary text-2xl"></i>
                     </div>
-                    <div>
-                        <h4 class="font-semibold">CompTIA</h4>
-                        <p class="text-sm text-gray-600 dark:text-gray-400">Security+, Network+, A+</p>
-                    </div>
+                    <h3 class="font-semibold">CompTIA</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">A+, Network+, Security+</p>
                 </div>
                 
-                <!-- CEH -->
-                <div class="cert-badge bg-white dark:bg-gray-800 rounded-lg p-4 shadow-md flex items-center transition-colors">
-                    <div class="w-12 h-12 bg-red-100 dark:bg-red-900 rounded-full flex items-center justify-center mr-4">
-                        <i class="fas fa-user-secret text-red-600 dark:text-red-300"></i>
+                <div class="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm flex flex-col items-center text-center hover:shadow-md transition-shadow">
+                    <div class="w-16 h-16 rounded-full bg-secondary/10 dark:bg-secondary/30 flex items-center justify-center mb-3">
+                        <i class="fab fa-aws text-secondary dark:text-primary text-2xl"></i>
                     </div>
-                    <div>
-                        <h4 class="font-semibold">CEH</h4>
-                        <p class="text-sm text-gray-600 dark:text-gray-400">Certified Ethical Hacker</p>
-                    </div>
+                    <h3 class="font-semibold">AWS</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">Cloud Practitioner, Solutions Architect</p>
                 </div>
                 
-                <!-- PMP -->
-                <div class="cert-badge bg-white dark:bg-gray-800 rounded-lg p-4 shadow-md flex items-center transition-colors">
-                    <div class="w-12 h-12 bg-yellow-100 dark:bg-yellow-900 rounded-full flex items-center justify-center mr-4">
-                        <i class="fas fa-project-diagram text-yellow-600 dark:text-yellow-300"></i>
+                <div class="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm flex flex-col items-center text-center hover:shadow-md transition-shadow">
+                    <div class="w-16 h-16 rounded-full bg-primary/10 dark:bg-primary/30 flex items-center justify-center mb-3">
+                        <i class="fab fa-microsoft text-primary dark:text-secondary text-2xl"></i>
                     </div>
-                    <div>
-                        <h4 class="font-semibold">PMP</h4>
-                        <p class="text-sm text-gray-600 dark:text-gray-400">Project Management Professional</p>
-                    </div>
+                    <h3 class="font-semibold">Microsoft Azure</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">AZ-900, AZ-104</p>
                 </div>
                 
-                <!-- Scrum -->
-                <div class="cert-badge bg-white dark:bg-gray-800 rounded-lg p-4 shadow-md flex items-center transition-colors">
-                    <div class="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mr-4">
-                        <i class="fas fa-tasks text-green-600 dark:text-green-300"></i>
+                <div class="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm flex flex-col items-center text-center hover:shadow-md transition-shadow">
+                    <div class="w-16 h-16 rounded-full bg-secondary/10 dark:bg-secondary/30 flex items-center justify-center mb-3">
+                        <i class="fab fa-google text-secondary dark:text-primary text-2xl"></i>
                     </div>
-                    <div>
-                        <h4 class="font-semibold">Scrum</h4>
-                        <p class="text-sm text-gray-600 dark:text-gray-400">Scrum Master, Product Owner</p>
-                    </div>
+                    <h3 class="font-semibold">Google Cloud</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">Associate Cloud Engineer</p>
                 </div>
-                
-                <!-- Lean Six Sigma -->
-                <div class="cert-badge bg-white dark:bg-gray-800 rounded-lg p-4 shadow-md flex items-center transition-colors">
-                    <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center mr-4">
-                        <i class="fas fa-chart-line text-purple-600 dark:text-purple-300"></i>
+            </div>
+        </section>
+        
+        <section class="mb-16">
+            <div class="impact-card rounded-2xl p-8 text-white">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                    <div>
+                        <p class="text-4xl font-bold">1000+</p>
+                        <p class="text-sm opacity-90">Students Trained</p>
                     </div>
                     <div>
-                        <h4 class="font-semibold">Lean Six Sigma</h4>
-                        <p class="text-sm text-gray-600 dark:text-gray-400">Yellow, Green, Black Belt</p>
-                    </div>
-                </div>
-                
-                <!-- Vendor Certs -->
-                <div class="cert-badge bg-white dark:bg-gray-800 rounded-lg p-4 shadow-md flex items-center transition-colors">
-                    <div class="w-12 h-12 bg-indigo-100 dark:bg-indigo-900 rounded-full flex items-center justify-center mr-4">
-                        <i class="fas fa-server text-indigo-600 dark:text-indigo-300"></i>
+                        <p class="text-4xl font-bold">90%</p>
+                        <p class="text-sm opacity-90">Certification Pass Rate</p>
                     </div>
                     <div>
-                        <h4 class="font-semibold">Vendor Certifications</h4>
-                        <p class="text-sm text-gray-600 dark:text-gray-400">Microsoft, Cisco, AWS</p>
+                        <p class="text-4xl font-bold">20+</p>
+                        <p class="text-sm opacity-90">Expert Instructors</p>
+                    </div>
+                    <div>
+                        <p class="text-4xl font-bold">50+</p>
+                        <p class="text-sm opacity-90">Custom Programs</p>
                     </div>
                 </div>
             </div>
         </section>
-
-        <!-- CTA Section -->
-        <section class="text-center">
-            <a href="index.html#services" class="inline-block bg-primary-light dark:bg-primary-dark hover:bg-opacity-90 text-white font-medium py-3 px-6 rounded-lg transition-colors mb-6">
+        
+        <section class="flex flex-col items-center">
+            <a href="index.html#services" class="px-6 py-3 bg-primary text-white rounded-lg font-medium hover:opacity-90 transition-opacity mb-6">
                 <i class="fas fa-arrow-left mr-2"></i> Back to Services
             </a>
-            <div class="flex items-center justify-center space-x-2">
-                <button id="like-btn" class="text-gray-600 dark:text-gray-400 hover:text-red-500 dark:hover:text-red-400 transition-colors">
+            
+            <div class="flex items-center space-x-4">
+                <button id="like-btn" class="flex items-center space-x-1 text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-secondary transition-colors">
                     <i class="far fa-heart text-xl"></i>
+                    <span id="like-count">3.2K Likes</span>
                 </button>
-                <span id="like-count" class="text-gray-600 dark:text-gray-400">3.2K Likes</span>
             </div>
         </section>
     </main>
 
     <script>
-        // Theme Toggle Logic
+        // Theme toggle functionality
         const themeToggle = document.getElementById('theme-toggle');
         const themeIcon = document.getElementById('theme-icon');
         
         // Check for saved theme preference or use system preference
         if (localStorage.getItem('color-theme') === 'dark' || (!localStorage.getItem('color-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark');
-            themeIcon.classList.remove('fa-sun');
-            themeIcon.classList.add('fa-moon');
+            themeIcon.classList.replace('fa-sun', 'fa-moon');
         } else {
             document.documentElement.classList.remove('dark');
-            themeIcon.classList.remove('fa-moon');
-            themeIcon.classList.add('fa-sun');
+            themeIcon.classList.replace('fa-moon', 'fa-sun');
         }
         
         // Toggle theme on button click
@@ -396,7 +294,7 @@
                 likeCount.textContent = formatLikeCount(likes) + ' Likes';
             } else {
                 likes++;
-                likeBtn.innerHTML = '<i class="fas fa-heart text-xl text-red-500"></i>';
+                likeBtn.innerHTML = '<i class="fas fa-heart text-xl text-red-500"></i>'; /* Keep red for 'liked' state */
                 likeCount.textContent = formatLikeCount(likes) + ' Likes';
             }
             liked = !liked;
