@@ -13,14 +13,8 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: {
-                            light: '#3b82f6',
-                            dark: '#2563eb'
-                        },
-                        secondary: {
-                            light: '#10b981',
-                            dark: '#059669'
-                        },
+                        primary: '#003b5a', /* Darker blue */
+                        secondary: '#00b5d8', /* Lighter blue */
                         dark: {
                             800: '#1e293b',
                             900: '#0f172a'
@@ -40,265 +34,240 @@
             font-family: 'Inter', sans-serif;
             transition: background-color 0.3s, color 0.3s;
         }
-        
+
         .gradient-text {
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
-            background-image: linear-gradient(90deg, #3b82f6, #10b981);
+            background-image: linear-gradient(90deg, var(--tw-primary), var(--tw-secondary));
         }
         
         .dark .gradient-text {
-            background-image: linear-gradient(90deg, #60a5fa, #34d399);
+            background-image: linear-gradient(90deg, var(--tw-primary), var(--tw-secondary));
         }
-        
-        .service-card {
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-5px);
-        }
-        
+
         .impact-card {
-            background: linear-gradient(135deg, #3b82f6, #10b981);
+            background: linear-gradient(135deg, var(--tw-primary), var(--tw-secondary));
         }
         
         .dark .impact-card {
-            background: linear-gradient(135deg, #2563eb, #059669);
-        }
-        
-        .like-btn:hover .heart-icon {
-            transform: scale(1.2);
-        }
-        
-        .heart-icon {
-            transition: transform 0.3s, color 0.3s;
+            background: linear-gradient(135deg, var(--tw-primary), var(--tw-secondary));
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800 dark:bg-dark-900 dark:text-gray-200">
-    <!-- Theme Toggle -->
-    <button id="theme-toggle" class="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full shadow-lg bg-white dark:bg-dark-800 flex items-center justify-center text-yellow-500 dark:text-yellow-300 hover:bg-gray-100 dark:hover:bg-dark-700 transition-colors">
-        <i class="fas fa-sun text-xl" id="sun-icon"></i>
-        <i class="fas fa-moon text-xl hidden" id="moon-icon"></i>
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-200" style="--tw-primary: #003b5a; --tw-secondary: #00b5d8;">
+    <button id="theme-toggle" class="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full shadow-lg bg-white dark:bg-gray-800 flex items-center justify-center text-yellow-500 dark:text-yellow-400 hover:scale-110 transition-transform">
+        <i class="fas fa-sun text-xl" id="theme-icon"></i>
     </button>
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <!-- Header -->
-        <div class="text-center mb-12">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">Cybersecurity Services</h1>
-            <p class="text-gray-500 dark:text-gray-400">Written by Babar Shahzad</p>
-        </div>
-        
-        <!-- Intro -->
-        <div class="max-w-3xl mx-auto mb-16">
-            <p class="text-lg leading-relaxed mb-6">
-                In today's digital landscape, cybersecurity is no longer optional—it's essential. With cyber threats evolving at an unprecedented rate, organizations of all sizes need robust protection to safeguard their data, reputation, and bottom line.
-            </p>
-            <p class="text-lg leading-relaxed">
-                Our comprehensive cybersecurity services provide end-to-end protection, combining cutting-edge technology with expert analysis to identify vulnerabilities, detect threats, and respond to incidents before they impact your business.
-            </p>
-        </div>
-        
-        <!-- Services Grid -->
-        <div class="grid md:grid-cols-2 gap-8 mb-16">
-            <!-- Endpoint Protection -->
-            <div class="service-card bg-white dark:bg-dark-800 rounded-xl p-8 shadow-md hover:shadow-lg">
-                <div class="w-14 h-14 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center mb-6">
-                    <i class="fas fa-shield-alt text-blue-500 dark:text-blue-400 text-2xl"></i>
-                </div>
-                <h3 class="text-2xl font-bold mb-4">Endpoint Protection</h3>
-                <p class="text-gray-600 dark:text-gray-300 mb-4">
-                    Advanced protection for all endpoints in your network, including workstations, mobile devices, and servers. Our solution provides real-time threat detection and response.
+    <header class="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">Cybersecurity Services</h1>
+        <p class="text-gray-600 dark:text-gray-400 mb-2">Protecting your digital assets with expert precision</p>
+        <p class="text-sm text-gray-500 dark:text-gray-500 italic">Written by Babar Shahzad</p>
+    </header>
+
+    <main class="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto pb-16">
+        <section class="mb-16">
+            <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md transition-all duration-300 hover:shadow-lg">
+                <p class="text-lg leading-relaxed">
+                    In an increasingly connected world, cybersecurity is no longer an option—it's a necessity. We provide comprehensive cybersecurity services designed to protect your organization from evolving threats, ensuring business continuity and data integrity.
                 </p>
-                <ul class="space-y-2 text-gray-600 dark:text-gray-300">
-                    <li class="flex items-center">
-                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                        Real-time malware detection
-                    </li>
-                    <li class="flex items-center">
-                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                        Behavioral analysis
-                    </li>
-                    <li class="flex items-center">
-                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                        Automated threat response
-                    </li>
-                </ul>
             </div>
+        </section>
+
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold mb-8 text-center">Our Core Cybersecurity Offerings</h2>
             
-            <!-- SIEM -->
-            <div class="service-card bg-white dark:bg-dark-800 rounded-xl p-8 shadow-md hover:shadow-lg">
-                <div class="w-14 h-14 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center mb-6">
-                    <i class="fas fa-chart-line text-green-500 dark:text-green-400 text-2xl"></i>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md transition-all duration-300 hover:shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-primary/10 dark:bg-primary/30 flex items-center justify-center mr-4">
+                            <i class="fas fa-desktop text-primary dark:text-secondary text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Managed Security Services</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400">
+                        24/7 monitoring, threat detection, and rapid incident response to keep your systems secure.
+                    </p>
+                    <ul class="mt-4 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>SIEM & Log Management</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Endpoint Detection & Response (EDR)</span>
+                        </li>
+                    </ul>
                 </div>
-                <h3 class="text-2xl font-bold mb-4">SIEM Solutions</h3>
-                <p class="text-gray-600 dark:text-gray-300 mb-4">
-                    Security Information and Event Management that provides real-time analysis of security alerts generated by applications and network hardware.
-                </p>
-                <ul class="space-y-2 text-gray-600 dark:text-gray-300">
-                    <li class="flex items-center">
-                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                        Centralized log management
-                    </li>
-                    <li class="flex items-center">
-                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                        Threat intelligence integration
-                    </li>
-                    <li class="flex items-center">
-                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                        Compliance reporting
-                    </li>
-                </ul>
+                
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md transition-all duration-300 hover:shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-primary/10 dark:bg-primary/30 flex items-center justify-center mr-4">
+                            <i class="fas fa-flask text-primary dark:text-secondary text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Penetration Testing & Vulnerability Assessment</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400">
+                        Proactive identification of weaknesses in your network, applications, and systems.
+                    </p>
+                    <ul class="mt-4 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Web Application Pen Testing</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Network Vulnerability Scans</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md transition-all duration-300 hover:shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-primary/10 dark:bg-primary/30 flex items-center justify-center mr-4">
+                            <i class="fas fa-cloud text-primary dark:text-secondary text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Cloud Security</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400">
+                        Secure your cloud infrastructure and applications across AWS, Azure, and Google Cloud.
+                    </p>
+                    <ul class="mt-4 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Cloud Security Posture Management (CSPM)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Cloud Workload Protection Platforms (CWPP)</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md transition-all duration-300 hover:shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-primary/10 dark:bg-primary/30 flex items-center justify-center mr-4">
+                            <i class="fas fa-user-lock text-primary dark:text-secondary text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Identity & Access Management (IAM)</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400">
+                        Control who has access to what resources, minimizing insider threats and unauthorized access.
+                    </p>
+                    <ul class="mt-4 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Multi-Factor Authentication (MFA)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Privileged Access Management (PAM)</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md transition-all duration-300 hover:shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-primary/10 dark:bg-primary/30 flex items-center justify-center mr-4">
+                            <i class="fas fa-clipboard-list text-primary dark:text-secondary text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Security Compliance & GRC</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400">
+                        Navigate complex regulatory landscapes with our governance, risk, and compliance services.
+                    </p>
+                    <ul class="mt-4 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>GDPR, HIPAA, ISO 27001 Compliance</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Risk Assessments & Management</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md transition-all duration-300 hover:shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-primary/10 dark:bg-primary/30 flex items-center justify-center mr-4">
+                            <i class="fas fa-chalkboard-teacher text-primary dark:text-secondary text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Security Awareness Training</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400">
+                        Empower your employees to be your first line of defense against cyber threats.
+                    </p>
+                    <ul class="mt-4 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Phishing Simulation</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Customized Training Modules</span>
+                        </li>
+                    </ul>
+                </div>
             </div>
+        </section>
+        
+        <section class="mb-16">
+            <div class="impact-card rounded-2xl p-8 text-white">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                    <div>
+                        <p class="text-4xl font-bold">99%</p>
+                        <p class="text-sm opacity-90">Threats Neutralized</p>
+                    </div>
+                    <div>
+                        <p class="text-4xl font-bold">24/7</p>
+                        <p class="text-sm opacity-90">Active Monitoring</p>
+                    </div>
+                    <div>
+                        <p class="text-4xl font-bold">200+</p>
+                        <p class="text-sm opacity-90">Successful Engagements</p>
+                    </div>
+                    <div>
+                        <p class="text-4xl font-bold">50+</p>
+                        <p class="text-sm opacity-90">Certified Experts</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="flex flex-col items-center justify-center text-center">
+            <a href="index.html#services" class="px-6 py-3 bg-primary text-white rounded-lg font-medium hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary dark:focus:ring-offset-gray-900 transition-colors mb-8">
+                <i class="fas fa-arrow-left mr-2"></i>
+                Back to Services
+            </a>
             
-            <!-- Penetration Testing -->
-            <div class="service-card bg-white dark:bg-dark-800 rounded-xl p-8 shadow-md hover:shadow-lg">
-                <div class="w-14 h-14 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center mb-6">
-                    <i class="fas fa-bug text-purple-500 dark:text-purple-400 text-2xl"></i>
-                </div>
-                <h3 class="text-2xl font-bold mb-4">Penetration Testing</h3>
-                <p class="text-gray-600 dark:text-gray-300 mb-4">
-                    Simulated cyber attacks against your system to check for exploitable vulnerabilities. Our ethical hackers use the same techniques as malicious actors.
-                </p>
-                <ul class="space-y-2 text-gray-600 dark:text-gray-300">
-                    <li class="flex items-center">
-                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                        Web application testing
-                    </li>
-                    <li class="flex items-center">
-                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                        Network infrastructure testing
-                    </li>
-                    <li class="flex items-center">
-                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                        Social engineering simulations
-                    </li>
-                </ul>
-            </div>
-            
-            <!-- ISO Audits -->
-            <div class="service-card bg-white dark:bg-dark-800 rounded-xl p-8 shadow-md hover:shadow-lg">
-                <div class="w-14 h-14 bg-yellow-100 dark:bg-yellow-900/30 rounded-lg flex items-center justify-center mb-6">
-                    <i class="fas fa-certificate text-yellow-500 dark:text-yellow-400 text-2xl"></i>
-                </div>
-                <h3 class="text-2xl font-bold mb-4">ISO-Certified Audits</h3>
-                <p class="text-gray-600 dark:text-gray-300 mb-4">
-                    Comprehensive security audits aligned with ISO 27001 standards to ensure your organization meets international security benchmarks.
-                </p>
-                <ul class="space-y-2 text-gray-600 dark:text-gray-300">
-                    <li class="flex items-center">
-                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                        Risk assessment
-                    </li>
-                    <li class="flex items-center">
-                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                        Policy development
-                    </li>
-                    <li class="flex items-center">
-                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                        Certification preparation
-                    </li>
-                </ul>
-            </div>
-        </div>
-        
-        <!-- Why Choose Us -->
-        <div class="bg-white dark:bg-dark-800 rounded-xl shadow-md p-8 mb-16">
-            <h2 class="text-3xl font-bold mb-8 text-center">Why Choose Our Cybersecurity Services</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-user-shield text-blue-500 dark:text-blue-400 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2">Expert Team</h3>
-                    <p class="text-gray-600 dark:text-gray-300">
-                        Our certified cybersecurity professionals have decades of combined experience protecting organizations across industries.
-                    </p>
-                </div>
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-clock text-green-500 dark:text-green-400 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2">24/7 Monitoring</h3>
-                    <p class="text-gray-600 dark:text-gray-300">
-                        Our security operations center provides round-the-clock monitoring to detect and respond to threats immediately.
-                    </p>
-                </div>
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-tools text-purple-500 dark:text-purple-400 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2">Custom Solutions</h3>
-                    <p class="text-gray-600 dark:text-gray-300">
-                        We tailor our security solutions to your specific business needs and risk profile.
-                    </p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Impact Card -->
-        <div class="impact-card rounded-xl text-white p-8 mb-16 shadow-lg">
-            <div class="max-w-4xl mx-auto">
-                <h2 class="text-3xl font-bold mb-6">Our Cybersecurity Impact</h2>
-                <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
-                    <div class="text-center">
-                        <div class="text-4xl font-bold mb-2">70%</div>
-                        <p>Reduction in attack risk</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="text-4xl font-bold mb-2">500+</div>
-                        <p>Organizations protected</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="text-4xl font-bold mb-2">24/7</div>
-                        <p>Security monitoring</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="text-4xl font-bold mb-2">99.9%</div>
-                        <p>Threat detection rate</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- CTA Section -->
-            <section class="flex flex-col items-center justify-center text-center">
-               <a href="index.html#services" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 dark:focus:ring-offset-gray-900 transition-colors mb-8">
-  <i class="fas fa-arrow-left mr-2"></i>
-  Back to Services
-</a>
-                <div class="flex items-center text-gray-500 dark:text-gray-400">
-                    <i class="fas fa-heart text-red-500 mr-2"></i>
-                    <span>3.5K Likes</span>
-                </div>
-            </section>
-        </main>
-    </div>
+            <button class="like-btn flex items-center space-x-1 text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-secondary transition-colors">
+                <i class="far fa-heart heart-icon text-xl"></i>
+                <span>4.1K Likes</span>
+            </button>
+        </section>
+    </main>
 
     <script>
         // Theme toggle functionality
         const themeToggle = document.getElementById('theme-toggle');
-        const sunIcon = document.getElementById('sun-icon');
-        const moonIcon = document.getElementById('moon-icon');
+        const themeIcon = document.getElementById('theme-icon');
         
-        // Check for saved user preference or system preference
+        // Check for saved theme preference or use system preference
         if (localStorage.getItem('color-theme') === 'dark' || (!localStorage.getItem('color-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark');
-            sunIcon.classList.add('hidden');
-            moonIcon.classList.remove('hidden');
+            themeIcon.classList.replace('fa-sun', 'fa-moon');
         } else {
             document.documentElement.classList.remove('dark');
-            sunIcon.classList.remove('hidden');
-            moonIcon.classList.add('hidden');
+            themeIcon.classList.replace('fa-moon', 'fa-sun');
         }
         
         // Toggle theme on button click
         themeToggle.addEventListener('click', function() {
-            // Toggle icons
-            sunIcon.classList.toggle('hidden');
-            moonIcon.classList.toggle('hidden');
+            // Toggle icon
+            themeIcon.classList.toggle('fa-sun');
+            themeIcon.classList.toggle('fa-moon');
             
             // Toggle theme
             if (document.documentElement.classList.contains('dark')) {
