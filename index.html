@@ -13,8 +13,8 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#0066ff',
-                        secondary: '#00c4ff',
+                        primary: '#003b5a', /* Darker blue */
+                        secondary: '#00b5d8', /* Lighter blue */
                         dark: '#0f172a',
                         light: '#f8fafc',
                         accent: '#ff5e00',
@@ -40,49 +40,49 @@
     </script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-        
+
         body {
             font-family: 'Poppins', sans-serif;
             overflow-x: hidden;
         }
-        
+
         .gradient-text {
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
-            background-image: linear-gradient(90deg, #0066ff, #00c4ff);
+            background-image: linear-gradient(90deg, var(--tw-primary), var(--tw-secondary)); /* Use CSS variables for gradient */
         }
-        
+
         .gradient-bg {
-            background: linear-gradient(135deg, #0066ff, #00c4ff);
+            background: linear-gradient(135deg, var(--tw-primary), var(--tw-secondary)); /* Use CSS variables for gradient */
         }
-        
+
         .dark-gradient-bg {
             background: linear-gradient(135deg, #0f172a, #1e293b);
         }
-        
+
         .service-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
-        
+
         .nav-link::after {
             content: '';
             display: block;
             width: 0;
             height: 2px;
-            background: #0066ff;
+            background: var(--tw-primary); /* Use CSS variable */
             transition: width .3s;
         }
-        
+
         .nav-link:hover::after {
             width: 100%;
         }
-        
+
         .dark .nav-link:hover::after {
-            background: #00c4ff;
+            background: var(--tw-secondary); /* Use CSS variable */
         }
-        
+
         .hamburger {
             cursor: pointer;
             width: 24px;
@@ -90,7 +90,7 @@
             transition: all 0.25s;
             position: relative;
         }
-        
+
         .hamburger-top,
         .hamburger-middle,
         .hamburger-bottom {
@@ -99,62 +99,62 @@
             left: 0;
             width: 24px;
             height: 2px;
-            background: #0066ff;
+            background: var(--tw-primary); /* Use CSS variable */
             transform: rotate(0);
             transition: all 0.5s;
         }
-        
+
         .dark .hamburger-top,
         .dark .hamburger-middle,
         .dark .hamburger-bottom {
-            background: #00c4ff;
+            background: var(--tw-secondary); /* Use CSS variable */
         }
-        
+
         .hamburger-middle {
             transform: translateY(7px);
         }
-        
+
         .hamburger-bottom {
             transform: translateY(14px);
         }
-        
+
         .open .hamburger-top {
             transform: rotate(45deg) translateY(6px) translate(6px);
         }
-        
+
         .open .hamburger-middle {
             display: none;
         }
-        
+
         .open .hamburger-bottom {
             transform: rotate(-45deg) translateY(6px) translate(-6px);
         }
-        
+
         .floating {
             animation-name: floating;
             animation-duration: 3s;
             animation-iteration-count: infinite;
             animation-timing-function: ease-in-out;
         }
-        
+
         @keyframes floating {
             0% { transform: translate(0, 0px); }
             50% { transform: translate(0, 15px); }
             100% { transform: translate(0, -0px); }
         }
-        
+
         .scroll-indicator {
             width: 30px;
             height: 50px;
-            border: 2px solid #0066ff;
+            border: 2px solid var(--tw-primary); /* Use CSS variable */
             border-radius: 15px;
             position: relative;
         }
-        
+
         .dark .scroll-indicator {
-            border-color: #00c4ff;
+            border-color: var(--tw-secondary); /* Use CSS variable */
         }
-        
+
         .scroll-indicator::before {
             content: '';
             position: absolute;
@@ -163,15 +163,15 @@
             width: 6px;
             height: 6px;
             margin-left: -3px;
-            background-color: #0066ff;
+            background-color: var(--tw-primary); /* Use CSS variable */
             border-radius: 100%;
             animation: scrollDown 2s infinite;
         }
-        
+
         .dark .scroll-indicator::before {
-            background-color: #00c4ff;
+            background-color: var(--tw-secondary); /* Use CSS variable */
         }
-        
+
         @keyframes scrollDown {
             0% {
                 transform: translateY(0);
@@ -184,20 +184,20 @@
         }
     </style>
 </head>
-<body class="bg-light dark:bg-dark text-gray-800 dark:text-gray-200 transition-colors duration-300">
-    <!-- Navigation -->
+<body class="bg-light dark:bg-dark text-gray-800 dark:text-gray-200 transition-colors duration-300"
+      style="--tw-primary: #003b5a; --tw-secondary: #00b5d8;">
     <nav class="fixed w-full z-50 bg-white/80 dark:bg-dark/80 backdrop-blur-md shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center">
                     <a href="#" class="flex items-center">
-                        <img src="https://github.com/Securifytechllc/securifytechllc/blob/main/securifylogo.png?raw=true" 
-     alt="SecurifyTech Logo" 
+                        <img src="https://github.com/Securifytechllc/securifytechllc/blob/main/securifylogo.png?raw=true"
+     alt="SecurifyTech Logo"
      class="w-10 h-10 object-contain mr-2 rounded-full" />
                         <span class="text-xl font-bold text-primary dark:text-secondary">SecurifyTech</span>
                     </a>
                 </div>
-                
+
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="#home" class="nav-link text-sm font-medium">Home</a>
                     <a href="#about" class="nav-link text-sm font-medium">About</a>
@@ -210,7 +210,7 @@
                         <i class="fas fa-sun text-yellow-500 dark:hidden"></i>
                     </button>
                 </div>
-                
+
                 <div class="md:hidden flex items-center">
                     <button id="theme-toggle-mobile" class="p-2 mr-2 rounded-full focus:outline-none">
                         <i class="fas fa-moon text-gray-600 dark:text-yellow-300 hidden dark:block"></i>
@@ -224,8 +224,7 @@
                 </div>
             </div>
         </div>
-        
-        <!-- Mobile menu -->
+
         <div id="menu" class="hidden md:hidden bg-white dark:bg-gray-800 shadow-lg rounded-lg mt-2 py-2 absolute w-full left-0 right-0">
             <div class="px-5 pt-2 pb-3 space-y-1">
                 <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-700">Home</a>
@@ -238,13 +237,12 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section id="home" class="pt-24 pb-16 md:pt-32 md:pb-24 relative overflow-hidden">
         <div class="absolute inset-0 overflow-hidden">
             <div class="absolute inset-0 bg-gradient-to-b from-white/80 to-white/20 dark:from-dark/80 dark:to-dark/20 z-10"></div>
             <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')] bg-cover bg-center opacity-20 dark:opacity-10"></div>
         </div>
-        
+
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 <div class="animate-fade-in">
@@ -264,7 +262,7 @@
                         </a>
                     </div>
                 </div>
-                
+
                 <div class="animate-slide-up hidden md:block">
                     <div class="relative">
                         <div class="w-full h-full bg-primary/10 dark:bg-secondary/10 rounded-2xl p-2">
@@ -285,7 +283,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <a href="#about" class="mt-16 md:mt-24 flex justify-center animate-bounce">
   <div class="text-gray-600 dark:text-gray-300 text-3xl">
     <i class="fas fa-chevron-down"></i>
@@ -295,14 +293,12 @@
         </div>
     </section>
 
-    <!-- Clients Section -->
-<section class="py-12 bg-gray-100 dark:bg-gray-800">
+    <section class="py-12 bg-gray-100 dark:bg-gray-800">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <h2 class="text-center text-2xl md:text-3xl font-bold mb-12">
       Our Team has worked with Leading Organizations including...
     </h2>
     <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 place-items-center">
-      <!-- Client Logos -->
       <div class="flex items-center justify-center h-20 w-full">
         <img src="https://uraanpk.com/wp-content/uploads/2022/07/cropped-uraan-01-300x64.png" alt="Client 1" class="max-h-12 opacity-70 hover:opacity-100 transition duration-300 mx-auto">
       </div>
@@ -326,7 +322,6 @@
 </section>
 
 
-    <!-- About Section -->
     <section id="about" class="py-16 md:py-24 bg-white dark:bg-gray-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -338,7 +333,7 @@
                     <p class="text-lg text-gray-600 dark:text-gray-300 mb-8">
                         We are committed to delivering innovative, high-quality, and secure digital transformation solutions that empower businesses to thrive in the digital age. Our team of certified professionals brings together expertise from diverse technological domains to provide comprehensive solutions tailored to your specific needs.
                     </p>
-                    
+
                     <div class="grid grid-cols-2 gap-4 mb-8">
                         <div class="flex items-start">
                             <div class="bg-primary/10 dark:bg-secondary/10 p-2 rounded-lg mr-3">
@@ -365,12 +360,12 @@
                             <span class="text-gray-700 dark:text-gray-300">Global Reach</span>
                         </div>
                     </div>
-                    
+
                     <a href="#contact" class="inline-flex items-center px-6 py-3 gradient-bg text-white rounded-lg font-medium hover:opacity-90 transition duration-300 shadow-lg">
                         Learn More <i class="fas fa-arrow-right ml-2"></i>
                     </a>
                 </div>
-                
+
                 <div class="order-1 md:order-2 relative">
                     <div class="relative rounded-2xl overflow-hidden shadow-2xl">
                         <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Our Team" class="w-full h-auto">
@@ -393,18 +388,15 @@
         </div>
     </section>
 
-    <!-- About CEO Section -->
-<section class="py-16 md:py-24 bg-white dark:bg-gray-900">
+    <section class="py-16 md:py-24 bg-white dark:bg-gray-900">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <!-- Image Left -->
             <div class="order-1 md:order-1 relative">
                 <div class="relative rounded-2xl overflow-hidden shadow-2xl">
                     <img src="https://github.com/Securifytechllc/securifytechllc/blob/main/1706712158169.jpeg?raw=true" alt="CEO Babar Shahzad" class="w-full h-auto object-cover">
                 </div>
             </div>
 
-            <!-- Text Right -->
             <div class="order-2 md:order-2">
                 <h2 class="text-3xl md:text-4xl font-bold mb-6">About <span class="gradient-text">Our CEO</span></h2>
                 <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-4">Babar Shahzad</h3>
@@ -429,7 +421,6 @@
 
 
 
-    <!-- Services Section -->
     <section id="services" class="py-16 md:py-24 bg-gray-50 dark:bg-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
@@ -439,9 +430,8 @@
                     Comprehensive technology solutions designed to secure, optimize, and transform your business operations.
                 </p>
             </div>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- IT Infrastructure -->
                 <div class="service-card bg-white dark:bg-gray-900 rounded-xl p-6 shadow-md hover:shadow-xl transition duration-300 group">
                     <div class="w-14 h-14 gradient-bg rounded-lg flex items-center justify-center text-white text-2xl mb-6">
                         <i class="fas fa-server"></i>
@@ -472,8 +462,7 @@
                         Learn More <i class="fas fa-arrow-right ml-2"></i>
                     </a>
                 </div>
-                
-                <!-- Cybersecurity -->
+
                 <div class="service-card bg-white dark:bg-gray-900 rounded-xl p-6 shadow-md hover:shadow-xl transition duration-300 group">
                     <div class="w-14 h-14 gradient-bg rounded-lg flex items-center justify-center text-white text-2xl mb-6">
                         <i class="fas fa-shield-alt"></i>
@@ -504,8 +493,7 @@
                         Learn More <i class="fas fa-arrow-right ml-2"></i>
                     </a>
                 </div>
-                
-                <!-- Automation -->
+
                 <div class="service-card bg-white dark:bg-gray-900 rounded-xl p-6 shadow-md hover:shadow-xl transition duration-300 group">
                     <div class="w-14 h-14 gradient-bg rounded-lg flex items-center justify-center text-white text-2xl mb-6">
                         <i class="fas fa-robot"></i>
@@ -536,8 +524,7 @@
                         Learn More <i class="fas fa-arrow-right ml-2"></i>
                     </a>
                 </div>
-                
-                <!-- Training & Certifications -->
+
                 <div class="service-card bg-white dark:bg-gray-900 rounded-xl p-6 shadow-md hover:shadow-xl transition duration-300 group">
                     <div class="w-14 h-14 gradient-bg rounded-lg flex items-center justify-center text-white text-2xl mb-6">
                         <i class="fas fa-graduation-cap"></i>
@@ -569,7 +556,7 @@
                     </a>
                 </div>
             </div>
-            
+
             <div class="mt-16 text-center">
                 <a href="#contact" class="inline-flex items-center px-8 py-4 gradient-bg text-white rounded-lg font-medium hover:opacity-90 transition duration-300 shadow-lg hover:shadow-xl">
                     Request a Quote <i class="fas fa-paper-plane ml-2"></i>
@@ -578,7 +565,6 @@
         </div>
     </section>
 
-    <!-- Stats Section -->
     <section class="py-16 gradient-bg text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
@@ -602,7 +588,6 @@
         </div>
     </section>
 
-    <!-- R&D Section -->
     <section id="rd" class="py-16 md:py-24 bg-white dark:bg-gray-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
@@ -612,11 +597,10 @@
                     Pioneering the future of technology through cutting-edge research and innovation.
                 </p>
             </div>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 <div>
                     <div class="grid grid-cols-2 gap-6">
-                        <!-- AI Research -->
                         <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl hover:shadow-lg transition duration-300">
                             <div class="w-12 h-12 gradient-bg rounded-lg flex items-center justify-center text-white text-xl mb-4">
                                 <i class="fas fa-brain"></i>
@@ -626,8 +610,7 @@
                                 Developing AI solutions for predictive analytics, natural language processing, and computer vision applications.
                             </p>
                         </div>
-                        
-                        <!-- Blockchain -->
+
                         <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl hover:shadow-lg transition duration-300">
                             <div class="w-12 h-12 gradient-bg rounded-lg flex items-center justify-center text-white text-xl mb-4">
                                 <i class="fas fa-link"></i>
@@ -637,8 +620,7 @@
                                 Researching decentralized solutions for secure transactions, smart contracts, and digital identity verification.
                             </p>
                         </div>
-                        
-                        <!-- Data Science -->
+
                         <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl hover:shadow-lg transition duration-300">
                             <div class="w-12 h-12 gradient-bg rounded-lg flex items-center justify-center text-white text-xl mb-4">
                                 <i class="fas fa-database"></i>
@@ -648,8 +630,7 @@
                                 Advanced analytics and machine learning models to extract actionable insights from complex datasets.
                             </p>
                         </div>
-                        
-                        <!-- Publications -->
+
                         <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl hover:shadow-lg transition duration-300">
                             <div class="w-12 h-12 gradient-bg rounded-lg flex items-center justify-center text-white text-xl mb-4">
                                 <i class="fas fa-book"></i>
@@ -661,7 +642,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div>
                     <div class="relative rounded-2xl overflow-hidden shadow-2xl">
                         <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="Research Lab" class="w-full h-auto">
@@ -676,7 +657,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="mt-16 text-center">
                 <a href="#contact" class="inline-flex items-center px-6 py-3 border border-primary dark:border-secondary text-primary dark:text-secondary rounded-lg font-medium hover:bg-primary/10 dark:hover:bg-secondary/10 transition duration-300">
                     Collaborate With Us <i class="fas fa-handshake ml-2"></i>
@@ -685,7 +666,6 @@
         </div>
     </section>
 
-    <!-- CSR Section -->
     <section id="csr" class="py-16 md:py-24 bg-gray-50 dark:bg-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
@@ -695,9 +675,8 @@
                     Building a better future through responsible business practices and community engagement.
                 </p>
             </div>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Community Impact -->
                 <div class="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-md hover:shadow-xl transition duration-300">
                     <div class="w-14 h-14 gradient-bg rounded-lg flex items-center justify-center text-white text-2xl mb-6">
                         <i class="fas fa-hands-helping"></i>
@@ -721,8 +700,7 @@
                         </li>
                     </ul>
                 </div>
-                
-                <!-- Sustainability -->
+
                 <div class="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-md hover:shadow-xl transition duration-300">
                     <div class="w-14 h-14 gradient-bg rounded-lg flex items-center justify-center text-white text-2xl mb-6">
                         <i class="fas fa-leaf"></i>
@@ -746,8 +724,7 @@
                         </li>
                     </ul>
                 </div>
-                
-                <!-- Diversity & Inclusion -->
+
                 <div class="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-md hover:shadow-xl transition duration-300">
                     <div class="w-14 h-14 gradient-bg rounded-lg flex items-center justify-center text-white text-2xl mb-6">
                         <i class="fas fa-users"></i>
@@ -772,7 +749,7 @@
                     </ul>
                 </div>
             </div>
-            
+
             <div class="mt-16 bg-white dark:bg-gray-900 rounded-xl p-8 shadow-lg">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                     <div>
@@ -807,16 +784,14 @@
         </div>
     </section>
 
-    <!-- Testimonials -->
     <section class="py-16 bg-white dark:bg-gray-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <span class="text-primary dark:text-secondary font-semibold">Client Feedback</span>
                 <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-4">What Our <span class="gradient-text">Clients Say</span></h2>
             </div>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Testimonial 1 -->
                 <div class="bg-gray-50 dark:bg-gray-800 p-8 rounded-xl relative">
                     <div class="absolute -top-5 left-6 w-10 h-10 rounded-full gradient-bg flex items-center justify-center text-white">
                         <i class="fas fa-quote-left"></i>
@@ -832,8 +807,7 @@
                         </div>
                     </div>
                 </div>
-                
-                <!-- Testimonial 2 -->
+
                 <div class="bg-gray-50 dark:bg-gray-800 p-8 rounded-xl relative">
                     <div class="absolute -top-5 left-6 w-10 h-10 rounded-full gradient-bg flex items-center justify-center text-white">
                         <i class="fas fa-quote-left"></i>
@@ -849,8 +823,7 @@
                         </div>
                     </div>
                 </div>
-                
-                <!-- Testimonial 3 -->
+
                 <div class="bg-gray-50 dark:bg-gray-800 p-8 rounded-xl relative">
                     <div class="absolute -top-5 left-6 w-10 h-10 rounded-full gradient-bg flex items-center justify-center text-white">
                         <i class="fas fa-quote-left"></i>
@@ -870,7 +843,6 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact" class="py-16 md:py-24 bg-gray-50 dark:bg-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
@@ -880,14 +852,13 @@
                     Ready to transform your business with our technology solutions? Reach out to our team today.
                 </p>
             </div>
-            
+
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 <div>
                     <div class="bg-white dark:bg-gray-900 rounded-xl p-8 shadow-lg">
                         <h3 class="text-2xl font-bold mb-6">Send Us a Message</h3>
                         <form action="https://formsubmit.co/securifytechllc@gmail.com" method="POST">
-                            <!-- Hidden fields -->
-  <input type="hidden" name="_captcha" value="false">
+                            <input type="hidden" name="_captcha" value="false">
   <input type="hidden" name="_next" value="thank-you.html">
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                                 <div>
@@ -913,11 +884,11 @@
                         </form>
                     </div>
                 </div>
-                
+
                 <div>
                     <div class="bg-white dark:bg-gray-900 rounded-xl p-8 shadow-lg h-full">
                         <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
-                        
+
                         <div class="space-y-6">
                             <div class="flex items-start">
                                 <div class="w-10 h-10 gradient-bg rounded-lg flex items-center justify-center text-white mr-4 mt-1">
@@ -931,7 +902,7 @@
                                     </p>
                                 </div>
                             </div>
-                            
+
                             <div class="flex items-start">
                                 <div class="w-10 h-10 gradient-bg rounded-lg flex items-center justify-center text-white mr-4 mt-1">
                                     <i class="fas fa-phone-alt"></i>
@@ -939,12 +910,12 @@
                                 <div>
                                     <h4 class="font-bold mb-1">Phone</h4>
                                     <p class="text-gray-600 dark:text-gray-300">
-                                        <a href="tel:+971561222074" class="hover:underline">+971 56 122 2074</a> (Mobile)<br>
-                                        <a href="tel:+923330533560" class="hover:underline">+92 333 0533560</a> (Mobile)
+                                        <a href="tel:+971561222074" class="hover:underline">+971 56 122 2074</a><br>
+                                        <a href="tel:+923330533560" class="hover:underline">+92 333 0533560</a>
                                     </p>
                                 </div>
                             </div>
-                            
+
                             <div class="flex items-start">
                                 <div class="w-10 h-10 gradient-bg rounded-lg flex items-center justify-center text-white mr-4 mt-1">
                                     <i class="fas fa-envelope"></i>
@@ -957,7 +928,7 @@
                                     </p>
                                 </div>
                             </div>
-                            
+
                             <div class="flex items-start">
                                 <div class="w-10 h-10 gradient-bg rounded-lg flex items-center justify-center text-white mr-4 mt-1">
                                     <i class="fas fa-clock"></i>
@@ -972,7 +943,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="mt-8">
                             <h4 class="font-bold mb-4">Follow Us</h4>
                             <div class="flex space-x-4">
@@ -996,12 +967,10 @@
         </div>
     </section>
 
-    <!-- Map Section -->
     <div class="h-96 w-full">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3322.9132619183124!2d73.09735577641949!3d33.60755494107895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38dfeb6bb5c0b649%3A0xb15572084afd9b0e!2sNational%20Aerospace%20Science%20and%20Technology%20Park%20(NASTP)!5e0!3m2!1sen!2sus!4v1746295964136!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
     </div>
 
-    <!-- Footer -->
     <footer class="bg-gray-900 text-gray-300 py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -1028,7 +997,7 @@
                         </a>
                     </div>
                 </div>
-                
+
                 <div>
                     <h3 class="text-white text-lg font-semibold mb-4">Quick Links</h3>
                     <ul class="space-y-2">
@@ -1040,7 +1009,7 @@
                         <li><a href="#contact" class="hover:text-white transition duration-300">Contact</a></li>
                     </ul>
                 </div>
-                
+
                 <div>
                     <h3 class="text-white text-lg font-semibold mb-4">Services</h3>
                     <ul class="space-y-2">
@@ -1052,7 +1021,7 @@
                         <li><a href="managing.html" class="hover:text-white transition duration-300">Managed Services</a></li>
                     </ul>
                 </div>
-                
+
                 <div>
                     <h3 class="text-white text-lg font-semibold mb-4">Newsletter</h3>
                     <p class="mb-4">
@@ -1075,10 +1044,10 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
                 <p class="text-gray-400 text-sm mb-4 md:mb-0">
-                    &copy; 2023 SecurifyTech. All rights reserved.
+                    © 2023 SecurifyTech. All rights reserved.
                 </p>
                 <div class="flex space-x-6">
                     <a href="#" class="text-gray-400 hover:text-white text-sm transition duration-300">Privacy Policy</a>
@@ -1093,23 +1062,23 @@
         // Mobile menu toggle
         const menuBtn = document.getElementById('menu-btn');
         const menu = document.getElementById('menu');
-        
+
         menuBtn.addEventListener('click', () => {
             menuBtn.classList.toggle('open');
             menu.classList.toggle('hidden');
             menu.classList.toggle('flex');
         });
-        
+
         // Theme toggle
         const themeToggle = document.getElementById('theme-toggle');
         const themeToggleMobile = document.getElementById('theme-toggle-mobile');
-        
+
         if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark');
         } else {
             document.documentElement.classList.remove('dark');
         }
-        
+
         const toggleTheme = () => {
             if (localStorage.getItem('color-theme')) {
                 if (localStorage.getItem('color-theme') === 'light') {
@@ -1122,32 +1091,32 @@
             } else {
                 if (document.documentElement.classList.contains('dark')) {
                     document.documentElement.classList.remove('dark');
-                    localStorage.setItem('color-theme', 'light');
+                    localStorage.setItem('color-theme', 'dark');
                 } else {
                     document.documentElement.classList.add('dark');
                     localStorage.setItem('color-theme', 'dark');
                 }
             }
         };
-        
+
         themeToggle.addEventListener('click', toggleTheme);
         themeToggleMobile.addEventListener('click', toggleTheme);
-        
+
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                
+
                 const targetId = this.getAttribute('href');
                 if (targetId === '#') return;
-                
+
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
                     window.scrollTo({
                         top: targetElement.offsetTop - 80,
                         behavior: 'smooth'
                     });
-                    
+
                     // Close mobile menu if open
                     if (!menu.classList.contains('hidden')) {
                         menuBtn.classList.remove('open');
@@ -1157,30 +1126,30 @@
                 }
             });
         });
-        
+
         // Scroll animation
         const animateOnScroll = () => {
             const elements = document.querySelectorAll('.animate-fade-in, .animate-slide-up');
-            
+
             elements.forEach(element => {
                 const elementPosition = element.getBoundingClientRect().top;
                 const windowHeight = window.innerHeight;
-                
+
                 if (elementPosition < windowHeight - 100) {
                     element.classList.add('opacity-100');
                 }
             });
         };
-        
+
         // Set initial state
         document.querySelectorAll('.animate-fade-in, .animate-slide-up').forEach(el => {
             el.classList.add('opacity-0');
         });
-        
+
         // Add event listener
         window.addEventListener('scroll', animateOnScroll);
         window.addEventListener('load', animateOnScroll);
-        
+
         // Trigger once on load
         animateOnScroll();
     </script>
