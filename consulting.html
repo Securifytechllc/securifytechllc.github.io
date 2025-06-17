@@ -13,14 +13,8 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: {
-                            light: '#3b82f6',
-                            dark: '#2563eb'
-                        },
-                        secondary: {
-                            light: '#10b981',
-                            dark: '#059669'
-                        }
+                        primary: '#003b5a', /* Darker blue */
+                        secondary: '#00b5d8', /* Lighter blue */
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
@@ -41,11 +35,11 @@
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
-            background-image: linear-gradient(90deg, #3b82f6, #10b981);
+            background-image: linear-gradient(90deg, var(--tw-primary), var(--tw-secondary));
         }
         
         .dark .gradient-text {
-            background-image: linear-gradient(90deg, #60a5fa, #34d399);
+            background-image: linear-gradient(90deg, var(--tw-primary), var(--tw-secondary));
         }
         
         .card-hover:hover {
@@ -58,21 +52,19 @@
         }
         
         .impact-card {
-            background: linear-gradient(135deg, #3b82f6, #10b981);
+            background: linear-gradient(135deg, var(--tw-primary), var(--tw-secondary));
         }
         
         .dark .impact-card {
-            background: linear-gradient(135deg, #2563eb, #059669);
+            background: linear-gradient(135deg, var(--tw-primary), var(--tw-secondary));
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-200">
-    <!-- Theme Toggle -->
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-200" style="--tw-primary: #003b5a; --tw-secondary: #00b5d8;">
     <button id="theme-toggle" class="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full shadow-lg bg-white dark:bg-gray-800 flex items-center justify-center text-yellow-500 dark:text-yellow-400 hover:scale-110 transition-transform">
         <i class="fas fa-sun text-xl" id="theme-icon"></i>
     </button>
 
-    <!-- Header -->
     <header class="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div class="text-center">
             <h1 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">Strategic Consulting Services</h1>
@@ -81,9 +73,7 @@
         </div>
     </header>
 
-    <!-- Main Content -->
     <main class="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto pb-16">
-        <!-- Intro -->
         <section class="mb-16">
             <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md card-hover transition-all duration-300">
                 <p class="text-lg leading-relaxed">
@@ -92,16 +82,14 @@
             </div>
         </section>
 
-        <!-- Services Grid -->
         <section class="mb-16">
             <h2 class="text-3xl font-bold mb-8 text-center">Our Consulting Expertise</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Service 1 -->
                 <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md card-hover transition-all duration-300">
                     <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center mr-4">
-                            <i class="fas fa-road text-blue-600 dark:text-blue-400 text-xl"></i>
+                        <div class="w-12 h-12 rounded-full bg-primary/10 dark:bg-primary/30 flex items-center justify-center mr-4">
+                            <i class="fas fa-road text-primary dark:text-secondary text-xl"></i>
                         </div>
                         <h3 class="text-xl font-semibold">Technology Strategy & Roadmap</h3>
                     </div>
@@ -124,11 +112,10 @@
                     </ul>
                 </div>
                 
-                <!-- Service 2 -->
                 <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md card-hover transition-all duration-300">
                     <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 rounded-full bg-purple-100 dark:bg-purple-900 flex items-center justify-center mr-4">
-                            <i class="fas fa-shield-alt text-purple-600 dark:text-purple-400 text-xl"></i>
+                        <div class="w-12 h-12 rounded-full bg-primary/10 dark:bg-primary/30 flex items-center justify-center mr-4">
+                            <i class="fas fa-shield-alt text-primary dark:text-secondary text-xl"></i>
                         </div>
                         <h3 class="text-xl font-semibold">IT Governance & Compliance</h3>
                     </div>
@@ -151,11 +138,10 @@
                     </ul>
                 </div>
                 
-                <!-- Service 3 -->
                 <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md card-hover transition-all duration-300">
                     <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center mr-4">
-                            <i class="fas fa-project-diagram text-green-600 dark:text-green-400 text-xl"></i>
+                        <div class="w-12 h-12 rounded-full bg-primary/10 dark:bg-primary/30 flex items-center justify-center mr-4">
+                            <i class="fas fa-project-diagram text-primary dark:text-secondary text-xl"></i>
                         </div>
                         <h3 class="text-xl font-semibold">Business Process Optimization</h3>
                     </div>
@@ -178,11 +164,10 @@
                     </ul>
                 </div>
                 
-                <!-- Service 4 -->
                 <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md card-hover transition-all duration-300">
                     <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 rounded-full bg-indigo-100 dark:bg-indigo-900 flex items-center justify-center mr-4">
-                            <i class="fas fa-robot text-indigo-600 dark:text-indigo-400 text-xl"></i>
+                        <div class="w-12 h-12 rounded-full bg-primary/10 dark:bg-primary/30 flex items-center justify-center mr-4">
+                            <i class="fas fa-robot text-primary dark:text-secondary text-xl"></i>
                         </div>
                         <h3 class="text-xl font-semibold">Digital Transformation Advisory</h3>
                     </div>
@@ -207,42 +192,37 @@
             </div>
         </section>
         
-        <!-- Industries Section -->
         <section class="mb-16">
             <h2 class="text-3xl font-bold mb-8 text-center">Industries We Serve</h2>
             
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <!-- Industry 1 -->
                 <div class="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm flex flex-col items-center text-center hover:shadow-md transition-shadow">
-                    <div class="w-16 h-16 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center mb-3">
-                        <i class="fas fa-university text-blue-600 dark:text-blue-400 text-2xl"></i>
+                    <div class="w-16 h-16 rounded-full bg-primary/10 dark:bg-primary/30 flex items-center justify-center mb-3">
+                        <i class="fas fa-university text-primary dark:text-secondary text-2xl"></i>
                     </div>
                     <h3 class="font-semibold">Finance & Banking</h3>
                     <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">RegTech, digital banking, risk management</p>
                 </div>
                 
-                <!-- Industry 2 -->
                 <div class="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm flex flex-col items-center text-center hover:shadow-md transition-shadow">
-                    <div class="w-16 h-16 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center mb-3">
-                        <i class="fas fa-heartbeat text-green-600 dark:text-green-400 text-2xl"></i>
+                    <div class="w-16 h-16 rounded-full bg-primary/10 dark:bg-primary/30 flex items-center justify-center mb-3">
+                        <i class="fas fa-heartbeat text-primary dark:text-secondary text-2xl"></i>
                     </div>
                     <h3 class="font-semibold">Healthcare</h3>
                     <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">Telemedicine, EHR optimization, compliance</p>
                 </div>
                 
-                <!-- Industry 3 -->
                 <div class="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm flex flex-col items-center text-center hover:shadow-md transition-shadow">
-                    <div class="w-16 h-16 rounded-full bg-purple-100 dark:bg-purple-900 flex items-center justify-center mb-3">
-                        <i class="fas fa-landmark text-purple-600 dark:text-purple-400 text-2xl"></i>
+                    <div class="w-16 h-16 rounded-full bg-primary/10 dark:bg-primary/30 flex items-center justify-center mb-3">
+                        <i class="fas fa-landmark text-primary dark:text-secondary text-2xl"></i>
                     </div>
                     <h3 class="font-semibold">Government</h3>
                     <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">Digital services, cybersecurity, cloud adoption</p>
                 </div>
                 
-                <!-- Industry 4 -->
                 <div class="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm flex flex-col items-center text-center hover:shadow-md transition-shadow">
-                    <div class="w-16 h-16 rounded-full bg-red-100 dark:bg-red-900 flex items-center justify-center mb-3">
-                        <i class="fas fa-shopping-cart text-red-600 dark:text-red-400 text-2xl"></i>
+                    <div class="w-16 h-16 rounded-full bg-primary/10 dark:bg-primary/30 flex items-center justify-center mb-3">
+                        <i class="fas fa-shopping-cart text-primary dark:text-secondary text-2xl"></i>
                     </div>
                     <h3 class="font-semibold">Retail & E-commerce</h3>
                     <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">Omnichannel, personalization, supply chain</p>
@@ -250,7 +230,6 @@
             </div>
         </section>
         
-        <!-- Impact Card -->
         <section class="mb-16">
             <div class="impact-card rounded-2xl p-8 text-white">
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
@@ -274,14 +253,13 @@
             </div>
         </section>
         
-        <!-- Footer CTA -->
         <section class="flex flex-col items-center">
-            <a href="index.html#services" class="px-6 py-3 bg-primary-light dark:bg-primary-dark text-white rounded-lg font-medium hover:opacity-90 transition-opacity mb-6">
+            <a href="index.html#services" class="px-6 py-3 bg-primary text-white rounded-lg font-medium hover:opacity-90 transition-opacity mb-6">
                 <i class="fas fa-arrow-left mr-2"></i> Back to Services
             </a>
             
             <div class="flex items-center space-x-4">
-                <button class="flex items-center space-x-1 text-gray-600 dark:text-gray-400 hover:text-primary-light dark:hover:text-primary-dark transition-colors">
+                <button class="flex items-center space-x-1 text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors">
                     <i class="far fa-thumbs-up text-xl"></i>
                     <span>2.9K Likes</span>
                 </button>
