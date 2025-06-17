@@ -13,14 +13,8 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: {
-                            light: '#3b82f6',
-                            dark: '#60a5fa'
-                        },
-                        secondary: {
-                            light: '#10b981',
-                            dark: '#34d399'
-                        }
+                        primary: '#003b5a', /* Darker blue */
+                        secondary: '#00b5d8' /* Lighter blue */
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
@@ -41,11 +35,11 @@
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
-            background-image: linear-gradient(90deg, #3b82f6, #10b981);
+            background-image: linear-gradient(90deg, var(--tw-primary), var(--tw-secondary));
         }
         
         .dark .gradient-text {
-            background-image: linear-gradient(90deg, #60a5fa, #34d399);
+            background-image: linear-gradient(90deg, var(--tw-primary), var(--tw-secondary));
         }
         
         .service-card {
@@ -57,11 +51,11 @@
         }
         
         .impact-card {
-            background: linear-gradient(135deg, #3b82f6, #10b981);
+            background: linear-gradient(135deg, var(--tw-primary), var(--tw-secondary));
         }
         
         .dark .impact-card {
-            background: linear-gradient(135deg, #60a5fa, #34d399);
+            background: linear-gradient(135deg, var(--tw-primary), var(--tw-secondary));
         }
         
         .theme-toggle {
@@ -73,13 +67,11 @@
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100">
-    <!-- Theme Toggle Button -->
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100" style="--tw-primary: #003b5a; --tw-secondary: #00b5d8;">
     <button id="themeToggle" class="fixed bottom-6 right-6 z-50 p-3 rounded-full shadow-lg bg-white dark:bg-gray-800 text-gray-800 dark:text-yellow-300 hover:shadow-xl theme-toggle">
         <i id="themeIcon" class="fas fa-sun text-xl"></i>
     </button>
 
-    <!-- Header -->
     <header class="py-6 px-4 sm:px-6 lg:px-8">
         <div class="container mx-auto">
             <h1 class="text-4xl md:text-5xl font-bold mb-2 gradient-text">Managed Services</h1>
@@ -87,28 +79,24 @@
         </div>
     </header>
 
-    <!-- Main Content -->
     <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <!-- Intro Section -->
         <section class="mb-16">
             <div class="max-w-3xl mx-auto">
                 <p class="text-lg md:text-xl leading-relaxed mb-6">
                     In today's digital landscape, managed services are the backbone of reliable IT operations, robust security, and uninterrupted business continuity. Our comprehensive solutions ensure your technology infrastructure operates at peak performance while allowing you to focus on your core business objectives.
                 </p>
-                <div class="h-1 w-20 bg-primary-light dark:bg-primary-dark rounded-full mb-8"></div>
+                <div class="h-1 w-20 bg-primary rounded-full mb-8"></div>
             </div>
         </section>
 
-        <!-- Services Grid -->
         <section class="mb-16">
             <h2 class="text-3xl font-bold mb-12 text-center">Our Comprehensive Managed Services</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-                <!-- Service 1 -->
-                <div class="service-card bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md hover:shadow-lg border-l-4 border-primary-light dark:border-primary-dark">
+                <div class="service-card bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md hover:shadow-lg border-l-4 border-primary">
                     <div class="flex items-start mb-4">
-                        <div class="p-3 rounded-lg bg-blue-50 dark:bg-blue-900/30 mr-4">
-                            <i class="fas fa-desktop text-primary-light dark:text-primary-dark text-xl"></i>
+                        <div class="p-3 rounded-lg bg-primary/10 dark:bg-primary/30 mr-4">
+                            <i class="fas fa-desktop text-primary dark:text-secondary text-xl"></i>
                         </div>
                         <h3 class="text-2xl font-semibold">24/7 Infrastructure Monitoring</h3>
                     </div>
@@ -131,11 +119,10 @@
                     </ul>
                 </div>
 
-                <!-- Service 2 -->
-                <div class="service-card bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md hover:shadow-lg border-l-4 border-secondary-light dark:border-secondary-dark">
+                <div class="service-card bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md hover:shadow-lg border-l-4 border-secondary">
                     <div class="flex items-start mb-4">
-                        <div class="p-3 rounded-lg bg-green-50 dark:bg-green-900/30 mr-4">
-                            <i class="fas fa-cloud text-secondary-light dark:text-secondary-dark text-xl"></i>
+                        <div class="p-3 rounded-lg bg-secondary/10 dark:bg-secondary/30 mr-4">
+                            <i class="fas fa-cloud text-secondary dark:text-primary text-xl"></i>
                         </div>
                         <h3 class="text-2xl font-semibold">Managed Cloud Services</h3>
                     </div>
@@ -158,11 +145,10 @@
                     </ul>
                 </div>
 
-                <!-- Service 3 -->
-                <div class="service-card bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md hover:shadow-lg border-l-4 border-yellow-500">
+                <div class="service-card bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md hover:shadow-lg border-l-4 border-secondary">
                     <div class="flex items-start mb-4">
-                        <div class="p-3 rounded-lg bg-yellow-50 dark:bg-yellow-900/30 mr-4">
-                            <i class="fas fa-sync-alt text-yellow-500 text-xl"></i>
+                        <div class="p-3 rounded-lg bg-secondary/10 dark:bg-secondary/30 mr-4">
+                            <i class="fas fa-sync-alt text-secondary text-xl"></i>
                         </div>
                         <h3 class="text-2xl font-semibold">Patch Management & Updates</h3>
                     </div>
@@ -185,11 +171,10 @@
                     </ul>
                 </div>
 
-                <!-- Service 4 -->
-                <div class="service-card bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md hover:shadow-lg border-l-4 border-red-500">
+                <div class="service-card bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md hover:shadow-lg border-l-4 border-primary">
                     <div class="flex items-start mb-4">
-                        <div class="p-3 rounded-lg bg-red-50 dark:bg-red-900/30 mr-4">
-                            <i class="fas fa-shield-alt text-red-500 text-xl"></i>
+                        <div class="p-3 rounded-lg bg-primary/10 dark:bg-primary/30 mr-4">
+                            <i class="fas fa-shield-alt text-primary text-xl"></i>
                         </div>
                         <h3 class="text-2xl font-semibold">Security & Compliance Oversight</h3>
                     </div>
@@ -214,16 +199,14 @@
             </div>
         </section>
 
-        <!-- Industries Section -->
         <section class="mb-16">
             <h2 class="text-3xl font-bold mb-12 text-center">Industries We Serve</h2>
             
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Industry 1 -->
                 <div class="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow">
                     <div class="flex items-center mb-4">
-                        <div class="p-3 rounded-lg bg-blue-100 dark:bg-blue-900/30 mr-4">
-                            <i class="fas fa-university text-blue-500 text-xl"></i>
+                        <div class="p-3 rounded-lg bg-primary/10 dark:bg-primary/30 mr-4">
+                            <i class="fas fa-university text-primary text-xl"></i>
                         </div>
                         <h3 class="text-xl font-semibold">Finance & Banking</h3>
                     </div>
@@ -232,11 +215,10 @@
                     </p>
                 </div>
 
-                <!-- Industry 2 -->
                 <div class="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow">
                     <div class="flex items-center mb-4">
-                        <div class="p-3 rounded-lg bg-green-100 dark:bg-green-900/30 mr-4">
-                            <i class="fas fa-hospital text-green-500 text-xl"></i>
+                        <div class="p-3 rounded-lg bg-secondary/10 dark:bg-secondary/30 mr-4">
+                            <i class="fas fa-hospital text-secondary text-xl"></i>
                         </div>
                         <h3 class="text-xl font-semibold">Healthcare</h3>
                     </div>
@@ -245,11 +227,10 @@
                     </p>
                 </div>
 
-                <!-- Industry 3 -->
                 <div class="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow">
                     <div class="flex items-center mb-4">
-                        <div class="p-3 rounded-lg bg-purple-100 dark:bg-purple-900/30 mr-4">
-                            <i class="fas fa-industry text-purple-500 text-xl"></i>
+                        <div class="p-3 rounded-lg bg-primary/10 dark:bg-primary/30 mr-4">
+                            <i class="fas fa-industry text-primary text-xl"></i>
                         </div>
                         <h3 class="text-xl font-semibold">Manufacturing</h3>
                     </div>
@@ -258,11 +239,10 @@
                     </p>
                 </div>
 
-                <!-- Industry 4 -->
                 <div class="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow">
                     <div class="flex items-center mb-4">
-                        <div class="p-3 rounded-lg bg-indigo-100 dark:bg-indigo-900/30 mr-4">
-                            <i class="fas fa-laptop-code text-indigo-500 text-xl"></i>
+                        <div class="p-3 rounded-lg bg-secondary/10 dark:bg-secondary/30 mr-4">
+                            <i class="fas fa-laptop-code text-secondary text-xl"></i>
                         </div>
                         <h3 class="text-xl font-semibold">Technology & Startups</h3>
                     </div>
@@ -273,7 +253,6 @@
             </div>
         </section>
 
-        <!-- Impact Card -->
         <section class="mb-16">
             <div class="impact-card rounded-2xl p-8 text-white shadow-lg">
                 <div class="max-w-4xl mx-auto">
@@ -300,13 +279,12 @@
             </div>
         </section>
 
-        <!-- CTA Section -->
         <section class="text-center">
-            <a href="index.html#services" class="inline-block bg-primary-light dark:bg-primary-dark hover:bg-primary-light/90 dark:hover:bg-primary-dark/90 text-white font-medium py-3 px-6 rounded-lg transition-colors mb-6">
+            <a href="index.html#services" class="inline-block bg-primary hover:opacity-90 text-white font-medium py-3 px-6 rounded-lg transition-colors mb-6 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary dark:focus:ring-offset-gray-900">
                 <i class="fas fa-arrow-left mr-2"></i> Back to Services
             </a>
             <div class="flex items-center justify-center space-x-2">
-                <button id="likeBtn" class="text-gray-600 dark:text-gray-300 hover:text-red-500 transition-colors">
+                <button id="likeBtn" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-secondary transition-colors">
                     <i class="far fa-heart text-xl"></i>
                 </button>
                 <span id="likeCount" class="text-gray-600 dark:text-gray-300">3.1K Likes</span>
