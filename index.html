@@ -6,7 +6,8 @@
     <title>SecurifyTech | Your Vision, Our Tech</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" type="image/png" href="https://github.com/Securifytechllc/securifytechllc.github.io/blob/main/securifylogo.png?raw=true">
+    <link rel="icon" type="image/png" href="https://github.com/Securifytechllc/securifytechllc/blob/main/securifylogo.png?raw=true">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -38,6 +39,7 @@
             }
         }
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
@@ -182,6 +184,288 @@
                 opacity: 0;
             }
         }
+        /* --- Chat Specific Styles --- */
+        #chat-toggle-button {
+            /* Tailwind classes already added in HTML handle most of the styling */
+            /* This ensures the bounce animation works if not globally defined by Tailwind */
+            animation: bounce 2s infinite; 
+        }
+
+        /* If your Tailwind config doesn't have 'bounce', add this @keyframes */
+        @keyframes bounce {
+          0%, 100% {
+            transform: translateY(-25%);
+            animation-timing-function: cubic-bezier(0.8,0,1,1);
+          }
+          50% {
+            transform: none;
+            animation-timing-function: cubic-bezier(0,0,0.2,1);
+          }
+        }
+
+        .chat-container {
+            position: fixed; /* Make it a floating popup */
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000; /* Ensure it's above other content */
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 400px; /* Typical width for a chat popup */
+            height: 600px; /* Typical height for a chat popup */
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            transform: translateY(100%); /* Start off-screen */
+            opacity: 0; /* Start invisible */
+            pointer-events: none; /* Prevents interaction when hidden */
+        }
+        /* Class to make the chat container visible and animated */
+        .chat-container.open {
+            transform: translateY(0); /* Slide up into view */
+            opacity: 1; /* Become visible */
+            pointer-events: auto; /* Allow interaction */
+        }
+        .chat-header {
+            background-color: #003b5a; /* Your primary color */
+            color: white;
+            padding: 15px;
+            font-size: 1.2em;
+            text-align: center;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            display: flex; /* For alignment of title and close button */
+            align-items: center;
+            justify-content: space-between; /* To push close button to right */
+        }
+        .chat-box {
+            flex-grow: 1;
+            padding: 20px;
+            overflow-y: auto;
+            border-bottom: 1px solid #eee;
+            background-color: #e9ebee;
+        }
+        .message {
+            margin-bottom: 10px;
+            padding: 8px 12px;
+            border-radius: 18px;
+            max-width: 70%;
+            word-wrap: break-word;
+            line-height: 1.5;
+        }
+        .message.user {
+            background-color: #DCF8C6; /* Light green for user */
+            align-self: flex-end;
+            margin-left: auto;
+            text-align: right;
+        }
+        .message.bot {
+            background-color: #F8F8F8; /* Light gray for bot */
+            align-self: flex-start;
+            margin-right: auto;
+            text-align: left;
+        }
+        .input-area {
+            display: flex;
+            padding: 15px;
+            border-top: 1px solid #eee;
+            gap: 10px;
+        }
+        .input-area input {
+            flex-grow: 1;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            font-size: 1em;
+            outline: none;
+        }
+        .input-area button {
+            background-color: #00b5d8; /* Your secondary color */
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+        .input-area button:hover {
+            background-color: #009ac2;
+        }
+        .error-message {
+            color: red;
+            text-align: center;
+            padding: 10px;
+            font-weight: bold;
+        }
+
+        /* --- Chat Specific Styles (Light Mode Defaults) --- */
+    #chat-toggle-button {
+        animation: bounce 2s infinite; 
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(-25%);
+        animation-timing-function: cubic-bezier(0.8,0,1,1);
+      }
+      50% {
+        transform: none;
+        animation-timing-function: cubic-bezier(0,0,0.2,1);
+      }
+    }
+
+    .chat-container {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1000;
+        background-color: #ffffff; /* Light mode background */
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        width: 90%;
+        max-width: 400px;
+        height: 600px;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, background-color 0.3s ease;
+        transform: translateY(100%);
+        opacity: 0;
+        pointer-events: none;
+    }
+    .chat-container.open {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+    }
+    .chat-header {
+        background-color: #003b5a; /* Primary color */
+        color: white;
+        padding: 15px;
+        font-size: 1.2em;
+        text-align: center;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        transition: background-color 0.3s ease;
+    }
+    .chat-box {
+        flex-grow: 1;
+        padding: 20px;
+        overflow-y: auto;
+        border-bottom: 1px solid #eee;
+        background-color: #e9ebee; /* Light mode chat background */
+        color: #333; /* Default text color */
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .message {
+        margin-bottom: 10px;
+        padding: 8px 12px;
+        border-radius: 18px;
+        max-width: 70%;
+        word-wrap: break-word;
+        line-height: 1.5;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .message.user {
+        background-color: #DCF8C6; /* User message background */
+        align-self: flex-end;
+        margin-left: auto;
+        text-align: right;
+        color: #333; /* User message text color */
+    }
+    .message.bot {
+        background-color: #F8F8F8; /* Bot message background */
+        align-self: flex-start;
+        margin-right: auto;
+        text-align: left;
+        color: #333; /* Bot message text color */
+    }
+    .input-area {
+        display: flex;
+        padding: 15px;
+        border-top: 1px solid #eee;
+        gap: 10px;
+        transition: border-color 0.3s ease;
+    }
+    .input-area input {
+        flex-grow: 1;
+        padding: 10px 15px;
+        border: 1px solid #ddd;
+        border-radius: 20px;
+        font-size: 1em;
+        outline: none;
+        background-color: #fff;
+        color: #333;
+        transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    }
+    .input-area input::placeholder {
+        color: #aaa;
+        transition: color 0.3s ease;
+    }
+    .input-area button {
+        background-color: #00b5d8; /* Secondary color */
+        color: white;
+        border: none;
+        border-radius: 20px;
+        padding: 10px 20px;
+        cursor: pointer;
+        font-size: 1em;
+        transition: background-color 0.3s ease;
+    }
+    .input-area button:hover {
+        background-color: #009ac2;
+    }
+    .error-message {
+        color: red;
+        text-align: center;
+        padding: 10px;
+        font-weight: bold;
+    }
+
+    /* --- Dark Mode Overrides --- */
+    /* When the 'dark' class is on the html or body element */
+    html.dark .chat-container, body.dark .chat-container {
+        background-color: #1a202c; /* Dark background for container */
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    }
+    html.dark .chat-header, body.dark .chat-header {
+        background-color: #0d2838; /* Darker primary for header */
+    }
+    html.dark .chat-box, body.dark .chat-box {
+        background-color: #2d3748; /* Darker background for chat messages area */
+        color: #e2e8f0; /* Light text for general chat content */
+    }
+    html.dark .message.user, body.dark .message.user {
+        background-color: #48bb78; /* Darker green for user bubble */
+        color: #ffffff; /* White text for user bubble */
+    }
+    html.dark .message.bot, body.dark .message.bot {
+        background-color: #2a4365; /* Dark blue for bot bubble */
+        color: #ffffff; /* White text for bot bubble */
+    }
+    html.dark .input-area, body.dark .input-area {
+        border-top-color: #4a5568;
+    }
+    html.dark .input-area input, body.dark .input-area input {
+        background-color: #4a5568; /* Darker background for input field */
+        color: #e2e8f0; /* Light text for input field */
+        border-color: #616e7f;
+    }
+    html.dark .input-area input::placeholder, body.dark .input-area input::placeholder {
+        color: #a0aec0; /* Lighter placeholder text */
+    }
+    html.dark .input-area button, body.dark .input-area button {
+        background-color: #007bff; /* Adjust button color for dark mode */
+    }
+    html.dark .error-message, body.dark .error-message {
+        color: #ff8a80; /* Lighter red for errors in dark mode */
+    }
     </style>
 </head>
 <body class="bg-light dark:bg-dark text-gray-800 dark:text-gray-200 transition-colors duration-300"
@@ -191,7 +475,7 @@
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center">
                     <a href="#" class="flex items-center">
-                        <img src="https://github.com/Securifytechllc/securifytechllc.github.io/blob/main/securifylogo.png?raw=true"
+                        <img src="https://github.com/Securifytechllc/securifytechllc/blob/main/securifylogo.png?raw=true"
      alt="SecurifyTech Logo"
      class="w-10 h-10 object-contain mr-2 rounded-full" />
                         <span class="text-xl font-bold text-primary dark:text-secondary">SecurifyTech</span>
@@ -973,7 +1257,7 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
                     <a href="#" class="flex items-center mb-6">
-    <img src="https://github.com/Securifytechllc/securifytechllc.github.io/blob/main/securifylogo.png?raw=true"
+    <img src="https://github.com/Securifytechllc/securifytechllc/blob/main/securifylogo.png?raw=true"
          alt="SecurifyTech Logo"
          class="w-10 h-10 object-contain mr-2 rounded-full" />
     <span class="text-xl font-bold text-white">SecurifyTech</span>
@@ -1047,15 +1331,119 @@
                     © 2023 SecurifyTech. All rights reserved.
                 </p>
                 <div class="flex space-x-6">
-                    <a href="policy.html" class="text-gray-400 hover:text-white text-sm transition duration-300">Privacy Policy</a>
-                    <a href="terms.html" class="text-gray-400 hover:text-white text-sm transition duration-300">Terms of Service</a>
-                    <a href="sitemap.xml" class="text-gray-400 hover:text-white text-sm transition duration-300">Sitemap</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition duration-300">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition duration-300">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition duration-300">Sitemap</a>
                 </div>
             </div>
         </div>
     </footer>
 
+    <div id="chat-toggle-button" class="fixed bottom-6 right-6 bg-secondary text-white p-4 rounded-full shadow-lg cursor-pointer flex items-center justify-center text-xl z-50 animate-bounce">
+        <i class="fas fa-comment-dots"></i>
+    </div>
+
+    <div class="chat-container hidden" id="chat-popup-container">
+        <div class="chat-header">
+            SecurifyTech LLC Cybersecurity AI Chatbot
+            <button id="close-chat-button" class="text-white text-lg ml-auto px-2 py-1 rounded hover:bg-opacity-80">
+                &times; </button>
+        </div>
+        <div class="chat-box" id="chat-box">
+            <div class="message bot">Hello! I'm your SecurifyTech Cybersecurity AI. How can I assist you today?</div>
+        </div>
+        <div class="input-area">
+            <input type="text" id="user-input" placeholder="Type your message...">
+            <button id="send-button">Send</button>
+        </div>
+    </div>
+
+
     <script>
+        // Your existing JavaScript (e.g., navigation, scroll animations) will be here.
+        const chatBox = document.getElementById('chat-box');
+        const userInput = document.getElementById('user-input');
+        const sendButton = document.getElementById('send-button');
+
+        // New elements for popup functionality
+        const chatToggleButton = document.getElementById('chat-toggle-button');
+        const chatPopupContainer = document.getElementById('chat-popup-container');
+        const closeChatButton = document.getElementById('close-chat-button'); // Get the close button
+
+
+        const BACKEND_URL = 'https://lalot-securify-cyber-ai-backend.hf.space/chat'; 
+
+        function appendMessage(sender, message) {
+        const messageDiv = document.createElement('div');
+        messageDiv.classList.add('message', sender);
+        
+        // UPDATED LINE: Use marked.parse() to convert Markdown to HTML
+        messageDiv.innerHTML = marked.parse(message); 
+        
+        chatBox.appendChild(messageDiv);
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+        async function sendMessage() {
+            const message = userInput.value.trim();
+            if (message === '') return;
+
+            appendMessage('user', message);
+            userInput.value = '';
+
+            try {
+                const response = await fetch(BACKEND_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ message: message })
+                });
+
+                if (!response.ok) {
+                    const errorData = await response.json().catch(() => ({}));
+                    const errorMessage = errorData.error || `HTTP error! Status: ${response.status}`;
+                    appendMessage('bot', `<span class="error-message">Error: ${errorMessage}. Please check backend logs.</span>`);
+                    console.error('Backend error:', response.status, errorData);
+                    return;
+                }
+
+                const data = await response.json();
+                if (data.reply) {
+                    appendMessage('bot', data.reply);
+                } else {
+                    appendMessage('bot', `<span class="error-message">Error: Unexpected response format from AI.</span>`);
+                    console.error('Unexpected AI response format:', data);
+                }
+
+            } catch (error) {
+                appendMessage('bot', `<span class="error-message">Error connecting to backend: ${error.message}. Please check your internet or try again later.</span>`);
+                console.error('Fetch error:', error);
+            }
+        }
+
+        sendButton.addEventListener('click', sendMessage);
+        userInput.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        // Event listeners for popup functionality
+        chatToggleButton.addEventListener('click', () => {
+            chatPopupContainer.classList.remove('hidden'); // Ensure hidden is removed
+            chatPopupContainer.classList.add('open'); // Add open for animation
+        });
+
+        closeChatButton.addEventListener('click', () => {
+            chatPopupContainer.classList.remove('open'); // Remove open for animation
+            // Give a slight delay before adding 'hidden' to allow transition to finish
+            setTimeout(() => {
+                chatPopupContainer.classList.add('hidden');
+            }, 300); // Match transition duration in CSS
+        });
+
+        // Your existing JavaScript (e.g., for scroll animations) will continue below this.
         // Mobile menu toggle
         const menuBtn = document.getElementById('menu-btn');
         const menu = document.getElementById('menu');
