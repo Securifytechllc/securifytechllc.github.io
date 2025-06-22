@@ -185,124 +185,23 @@
             }
         }
         /* --- Chat Specific Styles --- */
-        #chat-toggle-button {
-            /* Tailwind classes already added in HTML handle most of the styling */
-            /* This ensures the bounce animation works if not globally defined by Tailwind */
-            animation: bounce 2s infinite; 
-        }
+        /* This block focuses only on the chat widget's styling. */
 
-        /* If your Tailwind config doesn't have 'bounce', add this @keyframes */
-        @keyframes bounce {
-          0%, 100% {
-            transform: translateY(-25%);
-            animation-timing-function: cubic-bezier(0.8,0,1,1);
-          }
-          50% {
-            transform: none;
-            animation-timing-function: cubic-bezier(0,0,0.2,1);
-          }
+    /* --- Keyframes for Message Animation --- */
+    @keyframes messageFadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
         }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
 
-        .chat-container {
-            position: fixed; /* Make it a floating popup */
-            bottom: 20px;
-            right: 20px;
-            z-index: 1000; /* Ensure it's above other content */
-            background-color: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            width: 90%;
-            max-width: 400px; /* Typical width for a chat popup */
-            height: 600px; /* Typical height for a chat popup */
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-            transform: translateY(100%); /* Start off-screen */
-            opacity: 0; /* Start invisible */
-            pointer-events: none; /* Prevents interaction when hidden */
-        }
-        /* Class to make the chat container visible and animated */
-        .chat-container.open {
-            transform: translateY(0); /* Slide up into view */
-            opacity: 1; /* Become visible */
-            pointer-events: auto; /* Allow interaction */
-        }
-        .chat-header {
-            background-color: #003b5a; /* Your primary color */
-            color: white;
-            padding: 15px;
-            font-size: 1.2em;
-            text-align: center;
-            border-top-left-radius: 8px;
-            border-top-right-radius: 8px;
-            display: flex; /* For alignment of title and close button */
-            align-items: center;
-            justify-content: space-between; /* To push close button to right */
-        }
-        .chat-box {
-            flex-grow: 1;
-            padding: 20px;
-            overflow-y: auto;
-            border-bottom: 1px solid #eee;
-            background-color: #e9ebee;
-        }
-        .message {
-            margin-bottom: 10px;
-            padding: 8px 12px;
-            border-radius: 18px;
-            max-width: 70%;
-            word-wrap: break-word;
-            line-height: 1.5;
-        }
-        .message.user {
-            background-color: #DCF8C6; /* Light green for user */
-            align-self: flex-end;
-            margin-left: auto;
-            text-align: right;
-        }
-        .message.bot {
-            background-color: #F8F8F8; /* Light gray for bot */
-            align-self: flex-start;
-            margin-right: auto;
-            text-align: left;
-        }
-        .input-area {
-            display: flex;
-            padding: 15px;
-            border-top: 1px solid #eee;
-            gap: 10px;
-        }
-        .input-area input {
-            flex-grow: 1;
-            padding: 10px 15px;
-            border: 1px solid #ddd;
-            border-radius: 20px;
-            font-size: 1em;
-            outline: none;
-        }
-        .input-area button {
-            background-color: #00b5d8; /* Your secondary color */
-            color: white;
-            border: none;
-            border-radius: 20px;
-            padding: 10px 20px;
-            cursor: pointer;
-            font-size: 1em;
-            transition: background-color 0.3s ease;
-        }
-        .input-area button:hover {
-            background-color: #009ac2;
-        }
-        .error-message {
-            color: red;
-            text-align: center;
-            padding: 10px;
-            font-weight: bold;
-        }
-
-        /* --- Chat Specific Styles (Light Mode Defaults) --- */
+    /* --- Chat Toggle Button Animation --- */
     #chat-toggle-button {
+        /* Tailwind classes handle most styling; this ensures the bounce animation works */
         animation: bounce 2s infinite; 
     }
 
@@ -317,6 +216,7 @@
       }
     }
 
+    /* --- Chat Container (Light Mode Defaults) --- */
     .chat-container {
         position: fixed;
         bottom: 20px;
@@ -326,8 +226,8 @@
         border-radius: 8px;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         width: 90%;
-        max-width: 400px;
-        height: 600px;
+        max-width: 450px; /* Increased width */
+        height: 650px; /* Increased height */
         display: flex;
         flex-direction: column;
         overflow: hidden;
@@ -336,11 +236,14 @@
         opacity: 0;
         pointer-events: none;
     }
+    /* Class to make the chat container visible and animated */
     .chat-container.open {
         transform: translateY(0);
         opacity: 1;
         pointer-events: auto;
     }
+
+    /* --- Chat Header --- */
     .chat-header {
         background-color: #003b5a; /* Primary color */
         color: white;
@@ -354,6 +257,8 @@
         justify-content: space-between;
         transition: background-color 0.3s ease;
     }
+
+    /* --- Chat Box (Message Area) --- */
     .chat-box {
         flex-grow: 1;
         padding: 20px;
@@ -363,6 +268,8 @@
         color: #333; /* Default text color */
         transition: background-color 0.3s ease, color 0.3s ease;
     }
+
+    /* --- Individual Messages --- */
     .message {
         margin-bottom: 10px;
         padding: 8px 12px;
@@ -371,21 +278,24 @@
         word-wrap: break-word;
         line-height: 1.5;
         transition: background-color 0.3s ease, color 0.3s ease;
+        animation: messageFadeInUp 0.3s ease-out; /* Apply fade-in animation */
     }
     .message.user {
-        background-color: #DCF8C6; /* User message background */
+        background-color: #DCF8C6; /* Light green for user */
         align-self: flex-end;
         margin-left: auto;
         text-align: right;
         color: #333; /* User message text color */
     }
     .message.bot {
-        background-color: #F8F8F8; /* Bot message background */
+        background-color: #F8F8F8; /* Light gray for bot */
         align-self: flex-start;
         margin-right: auto;
         text-align: left;
         color: #333; /* Bot message text color */
     }
+
+    /* --- Input Area --- */
     .input-area {
         display: flex;
         padding: 15px;
